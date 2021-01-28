@@ -1,4 +1,5 @@
 class AlgorithmsController < ApplicationController
+  include ApplicationHelper
   def new
     @algorithm = Algorithm.new
     @algorithm.examples.build
