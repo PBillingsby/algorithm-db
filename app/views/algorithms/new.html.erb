@@ -5,16 +5,24 @@
       <%= f.text_field :name, class: 'form-control' %>
     </div>
     <div class="form-group text-center">
-      <%= f.label :runtime %>
-      <%= f.select :runtime, options_for_select(["O(log n)", "O(1)", "O(n)", "O(n log n)", "O(n^2)", "O(2^n)", "O(n!)"], "-") %>
-    </div>
-    <div class="form-group text-center">
       <%= f.label :worst_case %>
       <%= f.select :worst_case, options_for_select(["O(log n)", "O(1)", "O(n)", "O(n log n)", "O(n^2)", "O(2^n)", "O(n!)"], "-") %>
     </div>
     <div class="form-group text-center">
       <%= f.label :best_case %>
       <%= f.select :best_case, options_for_select(["O(log n)", "O(1)", "O(n)", "O(n log n)", "O(n^2)", "O(2^n)", "O(n!)"], "-") %>
+    </div>
+    <div class="form-group text-center">
+      <%= f.association :example do |a| %>
+        <div class="form-group text-center">
+          <%= a.label :example %>
+          <%= a.text_area :example %>
+        </div>
+        <div class="form-group text-center">  
+          <%= a.label :language %>
+          <%= a.text_field :language %>
+        </div>
+      <% end %>
     </div>
     <div class="form-group text-center">
       <%= f.label :steps %>

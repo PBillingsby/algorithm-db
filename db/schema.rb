@@ -10,14 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_28_182231) do
+ActiveRecord::Schema.define(version: 2021_01_28_192757) do
 
   create_table "algorithms", force: :cascade do |t|
     t.string "name"
-    t.string "runtime"
     t.string "worst_case"
     t.string "best_case"
     t.text "steps"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "examples", force: :cascade do |t|
+    t.string "language"
+    t.text "example"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
