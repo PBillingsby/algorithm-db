@@ -1,2 +1,13 @@
-<h1>Algorithm#show</h1>
-<p>Find me in app/views/algorithm/show.html.erb</p>
+<div class="mx-auto container">
+  <h1><%= @algorithm.name %></h1>
+  <p><b>Worst case:</b> <%= @algorithm.worst_case%></p>
+  <p><b>Best case:</b> <%= @algorithm.best_case%></p>
+  <div class="text-left">
+    <% @algorithm.examples.each do |eg| %>
+      <p><b>Language:</b> <%= eg.language%></p>
+      <div class="p-4 d-inline-block position-absolute bg-light">
+        <code><pre><%= eg.example %></pre></code>
+      </div>
+    <% end %>
+  </div>
+</div>

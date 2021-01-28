@@ -3,7 +3,6 @@ class ExamplesController < ApplicationController
     
   end
   def create
-    byebug
   end
   def index
   end

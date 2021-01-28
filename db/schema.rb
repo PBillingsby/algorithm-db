@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2021_01_28_192757) do
   end
 
   create_table "examples", force: :cascade do |t|
+    t.integer "algorithm_id"
     t.string "language"
     t.text "example"
     t.datetime "created_at", precision: 6, null: false
