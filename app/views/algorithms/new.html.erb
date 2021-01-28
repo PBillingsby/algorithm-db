@@ -1,0 +1,27 @@
+<%= simple_form_for @algorithm, html: { class: 'text-center'} do |f| %>
+  <div class="form-group w-50">
+    <div class="form-group text-center">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="form-group text-center">
+      <%= f.label :runtime %>
+      <%= f.select :runtime, options_for_select(["O(log n)", "O(1)", "O(n)", "O(n log n)", "O(n^2)", "O(2^n)", "O(n!)"], "-") %>
+    </div>
+    <div class="form-group text-center">
+      <%= f.label :worst_case %>
+      <%= f.select :worst_case, options_for_select(["O(log n)", "O(1)", "O(n)", "O(n log n)", "O(n^2)", "O(2^n)", "O(n!)"], "-") %>
+    </div>
+    <div class="form-group text-center">
+      <%= f.label :best_case %>
+      <%= f.select :best_case, options_for_select(["O(log n)", "O(1)", "O(n)", "O(n log n)", "O(n^2)", "O(2^n)", "O(n!)"], "-") %>
+    </div>
+    <div class="form-group text-center">
+      <%= f.label :steps %>
+      <%= f.text_area :steps, class: 'form-control' %>
+    </div>
+    <div class="text-center">
+      <%= f.submit %>
+    </div>
+  </div>
+<% end %>
