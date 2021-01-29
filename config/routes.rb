@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'hello_world', to: 'hello_world#index'
   resources :algorithms, only: [:index, :show, :new, :create] do
     resources :examples, only: [:create]
   end
