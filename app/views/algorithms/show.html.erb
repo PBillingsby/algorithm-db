@@ -1,13 +1,5 @@
 <div class="mx-auto container">
-  <h1><%= @algorithm.name %></h1>
-  <p><b>Worst case:</b> <%= @algorithm.worst_case%></p>
-  <p><b>Best case:</b> <%= @algorithm.best_case%></p>
-  <div class="text-left">
-    <% @algorithm.examples.each do |eg| %>
-      <p><b>Language:</b> <%= eg.language%></p>
-      <div class="p-4 d-inline-block position-absolute bg-light">
-        <code><pre><%= eg.example %></pre></code>
-      </div>
-    <% end %>
-  </div>
+  
+
+  <%= react_component("Algorithm", { algorithm: @algorithm, examples: @algorithm.examples }, {prerender: true}) %>
 </div>

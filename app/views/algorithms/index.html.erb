@@ -1,6 +1,6 @@
-<h1>Algorithms</h1>
-
-
-<% @algorithms.map do |algorithm| %>
-  <code><pre><%= algorithm.example %></pre></code>
-<% end %>
+<h1>Algorithms</h1><br>
+<ol>
+  <% @algorithms.map do |algorithm| %>
+    <li><%= link_to algorithm.name, algorithm_path(algorithm) %></li>
+  <% end %>
+</ol>
