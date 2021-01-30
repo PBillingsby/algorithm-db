@@ -11,7 +11,7 @@ class Algorithm extends React.Component {
         <p>
           <b>Best case:</b> {this.props.algorithm.best_case}
         </p>
-        {this.props.examples.map(eg => {
+        {Object.entries(this.props.examples).map(eg => {
           <div className="text-left">
             <p>
               <b>Language:</b> {eg.language}
