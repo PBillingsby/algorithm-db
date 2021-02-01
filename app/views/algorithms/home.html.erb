@@ -1,3 +1,5 @@
 <h1>Algorithms</h1>
 <p>Add new algorithm <%= link_to "here","algorithms/new"%></p>
-<%= react_component("Algorithm", { algorithm: random_algorithm, examples: random_algorithm.examples }, {prerender: true}) %>
+<% if random_algorithm %>
+  <%= react_component("Algorithm", { algorithm: random_algorithm, key: random_algorithm.id, examples: random_algorithm.examples }, {prerender: true}) %>
+<% end %>

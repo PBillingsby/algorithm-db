@@ -4,6 +4,6 @@
   </div>
   <div class="col-sm text-center">
     <h3 class="pt-2">Add new example</h3>
-    <%= render 'form', f:@algorithm, a:@algorithm.examples, html: { class: 'text-right'} %>
+    <%= render 'form', f:@algorithm, a:@algorithm.examples, key: @algorithm.id, html: { class: 'text-right'} %>
   </div>
 </div>
