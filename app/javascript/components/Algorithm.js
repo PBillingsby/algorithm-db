@@ -4,9 +4,8 @@ class Algorithm extends React.Component {
   render() {
     const examples = [...this.props.examples];
     const unique = [...new Set(examples)].map(eg => {
-      eg.language;
+      return eg.language;
     });
-    debugger;
     return (
       <div className="container">
         <h1>{this.props.algorithm.name}</h1>
@@ -19,7 +18,7 @@ class Algorithm extends React.Component {
         <hr></hr>
         <select>
           {unique.map(lang => {
-            <option>{lang}</option>;
+            return <option>{lang}</option>;
           })}
         </select>
         <div className="row">
