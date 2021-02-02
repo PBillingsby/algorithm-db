@@ -1,8 +1,8 @@
-<div class="mx-auto row container">
-  <div class="col-md">
+<div class="row mx-auto container">
+  <div class="col-lg mx-auto min-vw-75">
     <%= react_component("Algorithm", { algorithm: @algorithm, examples: @algorithm.examples, key: @algorithm.id }, {prerender: true}) %>
   </div>
-  <div class="col-sm text-center">
+  <div class="text-center col-sm">
     <h3 class="pt-2">Add new example</h3>
     <%= render 'form', f:@algorithm, a:@algorithm.examples, html: { class: 'text-right'} %>
   </div>

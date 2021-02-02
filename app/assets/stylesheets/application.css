@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+.code-min {
+  min-width: 60vw;
+  max-height: 50vh;
+}

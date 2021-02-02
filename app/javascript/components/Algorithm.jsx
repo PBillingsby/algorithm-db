@@ -16,7 +16,7 @@ class Algorithm extends React.Component {
     let examples = [...this.props.examples];
     let unique_languages = [...new Set(examples.map(eg => eg.language))];
     return (
-      <div className="container">
+      <div className="col-lg">
         <h1>{this.props.algorithm.name}</h1>
         <p>
           <b>Worst case:</b> {this.props.algorithm.worst_case}
@@ -31,22 +31,19 @@ class Algorithm extends React.Component {
             return <option>{lang}</option>;
           })}
         </select>
-        <div className="row">
+        <div className="code-min overflow-auto">
           {examples
             .filter(example => example.language == this.state.language)
             .map((eg, index) => {
               return (
-                <div className="col-sm p-3">
-                  <span className="d-inline-flex m-2 p-1">
-                    <p className="pt-4">{++index}.</p>
-                    <div className="d-inline-block m-4 p-3 position-absolute bg-light border border-black">
-                      <code>
-                        <pre>{eg.example}</pre>
-                      </code>
-                    </div>
-                  </span>
-                  <br></br>
-                </div>
+                <span className="mx-auto d-inline-flex m-2 p-1">
+                  <p className="pt-4">{++index}.</p>
+                  <div className="d-inline-block m-4 p-3 position-relative bg-light border border-black">
+                    <code>
+                      <pre>{eg.example}</pre>
+                    </code>
+                  </div>
+                </span>
               );
             })}
         </div>
