@@ -12,11 +12,15 @@ class Algorithm extends React.Component {
       language: e.target.value
     });
   };
+
+  deleteExample = id => {
+    debugger;
+  };
   render() {
     let examples = [...this.props.examples];
     let unique_languages = [...new Set(examples.map(eg => eg.language))];
     return (
-      <div className="col-lg">
+      <div className="col-md">
         <h1>{this.props.algorithm.name}</h1>
         <p>
           <b>Worst case:</b> {this.props.algorithm.worst_case}
@@ -31,18 +35,22 @@ class Algorithm extends React.Component {
             return <option>{lang}</option>;
           })}
         </select>
-        <div className="code-min overflow-auto">
+        <div className="code-min d-inline-block mx-auto scroll-bar">
           {examples
             .filter(example => example.language == this.state.language)
             .map((eg, index) => {
               return (
-                <span className="mx-auto d-inline-flex m-2 p-1">
+                <span>
                   <p className="pt-4">{++index}.</p>
-                  <div className="d-inline-block m-4 p-3 position-relative bg-light border border-black">
+                  <div className="m-4 p-3 bg-light border border-black">
                     <code>
                       <pre>{eg.example}</pre>
                     </code>
                   </div>
+                  <button
+                    className="ml-4 btn-sm btn btn-outline-secondary"
+                    onClick={() => this.deleteExample(eg.id)}
+                  >{`Delete ${eg.language} Example ${index}`}</button>
                 </span>
               );
             })}

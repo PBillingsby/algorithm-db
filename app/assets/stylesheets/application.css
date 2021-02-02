@@ -14,6 +14,10 @@
  *= require_self
  */
 .code-min {
-  min-width: 60vw;
+  min-width: 40vw;
   max-height: 50vh;
+}
+
+.scroll-bar {
+  overflow-y: scroll;
 }
