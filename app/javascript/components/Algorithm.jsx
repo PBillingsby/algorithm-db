@@ -8,16 +8,15 @@ class Algorithm extends React.Component {
     };
   }
   languageOptions = e => {
-    debugger;
+    this.setState({
+      language: e.target.value
+    });
   };
   render() {
-    let examples = [...this.props.examples].filter(
-      eg => eg.language == this.state.language
-    );
+    let examples = [...this.props.examples];
     let unique = [...new Set(examples)].map(eg => {
       return eg.language;
     });
-    debugger;
     return (
       <div className="container">
         <h1>{this.props.algorithm.name}</h1>
@@ -35,17 +34,22 @@ class Algorithm extends React.Component {
           })}
         </select>
         <div className="row">
-          {examples.map(eg => {
-            return (
-              <div className="col-sm">
-                <div className="m-4 d-inline-block float-left p-3 position-absolute bg-light border border-black">
-                  <code>
-                    <pre>{eg.example}</pre>
-                  </code>
+          {examples
+            .filter(example => example.language == this.state.language)
+            .map((eg, index) => {
+              return (
+                <div className="col-md">
+                  <span className="d-inline-flex m-2 p-1">
+                    <p className="pt-4">{++index}.</p>
+                    <div className="d-inline-block m-4 p-3 position-absolute bg-light border border-black">
+                      <code>
+                        <pre>{eg.example}</pre>
+                      </code>
+                    </div>
+                  </span>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
         </div>
       </div>
     );
