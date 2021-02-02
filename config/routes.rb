@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :algorithms, only: [:index, :show, :new, :create, :update] do
     resources :examples, only: [:create]
   end
+  resources :examples, only: [:destroy]
   root 'algorithms#home'
   get '/algorithms', to: 'algorithms#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

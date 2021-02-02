@@ -4,7 +4,7 @@ class Algorithm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      language: "Ruby"
+      language: ""
     };
   }
   languageOptions = e => {
@@ -12,15 +12,22 @@ class Algorithm extends React.Component {
       language: e.target.value
     });
   };
-
-  deleteExample = id => {
+  componentDidUpdate = () => {
     debugger;
+  };
+  deleteExample = (language, id) => {
+    fetch(`http://localhost:3000/examples/${id}`, {
+      method: "DELETE"
+    });
+    this.setState({
+      language: language
+    });
   };
   render() {
     let examples = [...this.props.examples];
     let unique_languages = [...new Set(examples.map(eg => eg.language))];
     return (
-      <div className="col-md">
+      <div className="col-lg">
         <h1>{this.props.algorithm.name}</h1>
         <p>
           <b>Worst case:</b> {this.props.algorithm.worst_case}
@@ -29,8 +36,12 @@ class Algorithm extends React.Component {
           <b>Best case:</b> {this.props.algorithm.best_case}
         </p>
         <hr></hr>
-        <b className="pr-3">Language:</b>
+        <b className="pr-3 mb-2">Language:</b>
         <select onChange={e => this.languageOptions(e)}>
+          <option disabled selected value>
+            {" "}
+            --{" "}
+          </option>
           {unique_languages.map(lang => {
             return <option>{lang}</option>;
           })}
@@ -49,7 +60,7 @@ class Algorithm extends React.Component {
                   </div>
                   <button
                     className="ml-4 btn-sm btn btn-outline-secondary"
-                    onClick={() => this.deleteExample(eg.id)}
+                    onClick={() => this.deleteExample(eg.language, eg.id)}
                   >{`Delete ${eg.language} Example ${index}`}</button>
                 </span>
               );

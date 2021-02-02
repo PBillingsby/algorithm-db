@@ -1,13 +1,7 @@
 class ExamplesController < ApplicationController
-  def new
-    
-  end
-  def create
-  end
-  def index
-  end
-
-  def show
+  skip_before_action :verify_authenticity_token
+  def destroy
+    Example.find(params[:id]).delete
   end
 
   def exampless_params
