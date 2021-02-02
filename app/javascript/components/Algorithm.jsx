@@ -14,9 +14,7 @@ class Algorithm extends React.Component {
   };
   render() {
     let examples = [...this.props.examples];
-    let unique = [...new Set(examples)].map(eg => {
-      return eg.language;
-    });
+    let unique_languages = [...new Set(examples.map(eg => eg.language))];
     return (
       <div className="container">
         <h1>{this.props.algorithm.name}</h1>
@@ -29,7 +27,7 @@ class Algorithm extends React.Component {
         <hr></hr>
         <b className="pr-3">Language:</b>
         <select onChange={e => this.languageOptions(e)}>
-          {unique.map(lang => {
+          {unique_languages.map(lang => {
             return <option>{lang}</option>;
           })}
         </select>
@@ -38,7 +36,7 @@ class Algorithm extends React.Component {
             .filter(example => example.language == this.state.language)
             .map((eg, index) => {
               return (
-                <div className="col-md">
+                <div className="col-sm p-3">
                   <span className="d-inline-flex m-2 p-1">
                     <p className="pt-4">{++index}.</p>
                     <div className="d-inline-block m-4 p-3 position-absolute bg-light border border-black">
@@ -47,6 +45,7 @@ class Algorithm extends React.Component {
                       </code>
                     </div>
                   </span>
+                  <br></br>
                 </div>
               );
             })}
