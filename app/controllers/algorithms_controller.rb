@@ -8,6 +8,9 @@ class AlgorithmsController < ApplicationController
     algorithm = Algorithm.create(algorithms_params)
     redirect_to algorithm_path(algorithm)
   end
+  def home
+    @algorithms = Algorithm.all
+  end
   def index
     @algorithms = Algorithm.all
   end
