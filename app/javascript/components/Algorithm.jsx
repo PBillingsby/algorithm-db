@@ -4,7 +4,7 @@ class Algorithm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      language: ""
+      language: "Ruby"
     };
   }
   languageOptions = e => {
@@ -12,17 +12,20 @@ class Algorithm extends React.Component {
       language: e.target.value
     });
   };
-  componentDidUpdate = () => {
-    debugger;
-  };
   deleteExample = (language, id) => {
+    const stateLanguage = language;
     fetch(`http://localhost:3000/examples/${id}`, {
       method: "DELETE"
     });
     this.setState({
-      language: language
+      language: stateLanguage
     });
+    window.location.reload();
   };
+  // this.setState({
+  //   language: language
+  // }),
+  // this.forceUpdate()
   render() {
     let examples = [...this.props.examples];
     let unique_languages = [...new Set(examples.map(eg => eg.language))];
@@ -38,7 +41,7 @@ class Algorithm extends React.Component {
         <hr></hr>
         <b className="pr-3 mb-2">Language:</b>
         <select onChange={e => this.languageOptions(e)}>
-          <option disabled selected value>
+          <option disabled defaultValue>
             {" "}
             --{" "}
           </option>
