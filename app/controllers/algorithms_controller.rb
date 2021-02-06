@@ -4,14 +4,13 @@ class AlgorithmsController < ApplicationController
     @algorithm = Algorithm.new
     @algorithm.examples.build
   end
+
   def create
     algorithm = Algorithm.create(algorithms_params)
     flash[:message] = "#{algorithm.name} added"
     redirect_to algorithm_path(algorithm)
   end
-  def home
-    @algorithms = Algorithm.all
-  end
+
   def index
     @algorithms = Algorithm.all
   end
@@ -23,7 +22,7 @@ class AlgorithmsController < ApplicationController
   def update
     algorithm = Algorithm.find(params[:id])
     algorithm.examples.create(example: params[:algorithm][:example][:example], language: params[:algorithm][:example][:language])
-    redirect_to algorithm_path(algorithm)
+    redirect_to algorithm_path(algorithm), :flash => { :message => "Example added", :class => 'alert-success' }
   end
 
   def algorithms_params
