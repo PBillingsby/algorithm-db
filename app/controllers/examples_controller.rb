@@ -1,10 +1,14 @@
 class ExamplesController < ApplicationController
   skip_before_action :verify_authenticity_token
-  def destroy
-    Example.find(params[:id]).delete
+
+  def create
+    byebug
   end
 
-  def exampless_params
-    params.require(:example).permit(:language, :example)
+  def destroy
+    example = Example.find(params[:id])
+    flash[:message] = "#{example.algorithm.name} Deleted"
+    example.delete
+    byebug
   end
 end

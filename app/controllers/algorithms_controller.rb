@@ -6,6 +6,7 @@ class AlgorithmsController < ApplicationController
   end
   def create
     algorithm = Algorithm.create(algorithms_params)
+    flash[:message] = "#{algorithm.name} added"
     redirect_to algorithm_path(algorithm)
   end
   def home

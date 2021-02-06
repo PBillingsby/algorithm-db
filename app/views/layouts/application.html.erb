@@ -20,6 +20,10 @@
           <a class="nav-link" href="/algorithms/new">New</a>
         </li>
       </ul>
+      
+      <% if flash[:message] %>
+        <p><%= flash[:message] %></p> <br>
+      <% end %>
       <%= yield %>
     </div>
   </body>

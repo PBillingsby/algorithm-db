@@ -20,12 +20,7 @@ class Algorithm extends React.Component {
     this.setState({
       language: stateLanguage
     });
-    window.location.reload();
   };
-  // this.setState({
-  //   language: language
-  // }),
-  // this.forceUpdate()
   render() {
     let examples = [...this.props.examples];
     let unique_languages = [...new Set(examples.map(eg => eg.language))];
