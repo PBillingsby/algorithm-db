@@ -1,14 +1,15 @@
 <%= simple_form_for @algorithm, html: { class: 'text-center'} do |f| %>
+<%byebug%>
 <div class="form-group w-50 mx-auto">
   <div class="form-group text-center">
     <%= f.simple_fields_for @algorithm.examples.new do |a| %>
       <div class="form-group text-center">
         <%= a.label :example %><br>
-        <%= a.text_area :example %>
+        <%= a.text_area :example, class: 'form-control' %>
       </div>
       <div class="form-group text-center">  
         <%= a.label :language %><br>
-        <%= a.select :language, options_for_select([["--", ""],"Ruby", "JavaScript" ], "--") %>
+        <%= a.select :language, options_for_select([["--", ""],"Ruby", "JavaScript" ], "--"), class: 'form-control' %>
       </div>
     <% end %>
   </div>

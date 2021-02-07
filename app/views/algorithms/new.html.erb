@@ -1,32 +1,32 @@
 <%= simple_form_for @algorithm, html: { class: 'text-center'} do |f| %>
-  <div class="form-group w-50">
-    <div class="form-group text-center">
+  <div class="w-50 mx-auto">
+    <div class="form-group mx-auto w-50">
       <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.text_field :name, class: 'form-control input-group' %>
     </div>
-    <div class="form-group text-center">
-      <%= f.label :worst_case %>
-      <%= f.select :worst_case, options_for_select(["O(log n)", "O(1)", "O(n)", "O(n log n)", "O(n^2)", "O(2^n)", "O(n!)"], "-") %>
+    <div class="form-group mx-auto w-50">
+      <%= f.label :steps %>
+      <%= f.text_area :steps, class: 'form-control' %>
     </div>
-    <div class="form-group text-center">
-      <%= f.label :best_case %>
-      <%= f.select :best_case, options_for_select(["O(log n)", "O(1)", "O(n)", "O(n log n)", "O(n^2)", "O(2^n)", "O(n!)"], "-") %>
-    </div>
-    <div class="form-group text-center">
+    <div class="form-group">
       <%= f.simple_fields_for :examples do |a| %>
-        <div class="form-group text-center">
+        <div class="form-group mx-auto w-50">
           <%= a.label :example %>
-          <%= a.text_area :example %>
+          <%= a.text_area :example, class: 'form-control' %>
         </div>
-        <div class="form-group text-center">  
+        <div class="form-group">  
           <%= a.label :language %>
-          <%= a.text_field :language %>
+          <%= a.select :language, options_for_select(Algorithm::LANGUAGES, "--") %>
         </div>
       <% end %>
     </div>
-    <div class="form-group text-center">
-      <%= f.label :steps %>
-      <%= f.text_area :steps, class: 'form-control' %>
+    <div class="form-group">
+      <%= f.label :worst_case %>
+      <%= f.select :worst_case, options_for_select(@runtime, "-"), class: 'form-select' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :best_case %>
+      <%= f.select :best_case, options_for_select(@runtime, "-"), class: 'form-select' %>
     </div>
     <div class="text-center">
       <%= f.submit %>
