@@ -22,11 +22,11 @@
     </div>
     <div class="form-group">
       <%= f.label :worst_case %>
-      <%= f.select :worst_case, options_for_select(@runtime, "-"), class: 'form-select' %>
+      <%= f.select :worst_case, options_for_select(Algorithm::RUNTIME, "-"), class: 'form-select' %>
     </div>
     <div class="form-group">
       <%= f.label :best_case %>
-      <%= f.select :best_case, options_for_select(@runtime, "-"), class: 'form-select' %>
+      <%= f.select :best_case, options_for_select(Algorithm::RUNTIME, "-"), class: 'form-select' %>
     </div>
     <div class="text-center">
       <%= f.submit %>

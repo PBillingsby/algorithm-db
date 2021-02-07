@@ -12,14 +12,19 @@ class Algorithm extends React.Component {
       language: e.target.value
     });
   };
-  deleteExample = (language, id) => {
+  deleteExample = (language, example) => {
     const stateLanguage = language;
-    fetch(`http://localhost:3000/examples/${id}`, {
-      method: "DELETE"
-    });
-    this.setState({
-      language: stateLanguage
-    });
+    fetch(`http://localhost:3000/examples/${example.id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      }
+    }).then(
+      this.setState({
+        language: stateLanguage
+      }),
+      this.props.history.push(`/algorithms/${example.algorithm_id}`)
+    );
   };
   render() {
     let examples = [...this.props.examples];
@@ -58,7 +63,7 @@ class Algorithm extends React.Component {
                   </div>
                   <button
                     className="ml-4 btn-sm btn btn-outline-secondary"
-                    onClick={() => this.deleteExample(eg.language, eg.id)}
+                    onClick={() => this.deleteExample(eg.language, eg)}
                   >{`Delete ${eg.language} Example ${index}`}</button>
                 </span>
               );
