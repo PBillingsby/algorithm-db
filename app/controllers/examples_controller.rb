@@ -4,14 +4,9 @@ class ExamplesController < ApplicationController
   def destroy
     example = Example.find_by(id: params[:id])
     if example.delete
-      flash = { :message => "#{example.algorithm.name} Deleted", :class => 'alert-danger' }
-      respond_to do |format|
-        format.html { redirect_to algorithm_path(example.algorithm) }
-        format.json { head :no_content }
-      end
+      redirect_to :back, :flash => { :message => "#{example.algorithm.name} Deleted", :class => 'alert-danger' }
     else
       render :show, :flash => { :message => "Something went wrong, try again", :class => 'alert-danger' }
     end
   end
-
 end

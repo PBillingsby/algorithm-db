@@ -22,8 +22,7 @@ class Algorithm extends React.Component {
     }).then(
       this.setState({
         language: stateLanguage
-      }),
-      this.props.history.push(`/algorithms/${example.algorithm_id}`)
+      })
     );
   };
   render() {
@@ -31,6 +30,7 @@ class Algorithm extends React.Component {
     let unique_languages = [...new Set(examples.map(eg => eg.language))];
     return (
       <div className="col-lg">
+        <input type="hidden" name="stateLanguage" value={this.state.language} />
         <h1>{this.props.algorithm.name}</h1>
         <p>
           <b>Worst case:</b> {this.props.algorithm.worst_case}

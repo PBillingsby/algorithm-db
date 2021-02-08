@@ -16,6 +16,7 @@ class AlgorithmsController < ApplicationController
   end
 
   def show
+    # byebug
     @algorithm = Algorithm.find(params[:id])
   end
 
