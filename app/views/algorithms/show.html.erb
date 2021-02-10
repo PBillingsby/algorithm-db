@@ -5,4 +5,7 @@
   <div class="text-center col-sm">
     <%= render 'form', f:@algorithm, a:@algorithm.examples, html: { class: 'text-right'} %>
   </div>
+  <div class="row">
+    <p>Add article about <%= @algorithm.name %> <%= link_to 'here', new_algorithm_articles_path(@algorithm) %></p>
+  </div>
 </div>

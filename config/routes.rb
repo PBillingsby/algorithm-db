@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'hello_world', to: 'hello_world#index'
   resources :algorithms, only: [:index, :show, :new, :create, :update] do
     resource :examples, only: [:create]
+    resource :articles, only: [:new, :create]
   end
   resources :examples, only: [:destroy]
   root 'algorithms#index'

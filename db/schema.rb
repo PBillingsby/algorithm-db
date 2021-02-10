@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_28_192757) do
+ActiveRecord::Schema.define(version: 2021_02_10_013720) do
 
   create_table "algorithms", force: :cascade do |t|
     t.string "name"
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(version: 2021_01_28_192757) do
     t.text "steps"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "articles", force: :cascade do |t|
+    t.integer "algorithm_id"
+    t.string "title"
+    t.text "article_content"
+    t.index ["algorithm_id"], name: "index_articles_on_algorithm_id"
   end
 
   create_table "examples", force: :cascade do |t|
