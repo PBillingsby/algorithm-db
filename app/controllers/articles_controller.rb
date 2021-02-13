@@ -17,6 +17,11 @@ class ArticlesController < ApplicationController
 
   def index 
     @articles = Article.all
+    if params[:article]
+      byebug
+    end
+    puts "----------------------"
+    puts "HERE ARE THE #{params}"
   end
 
   def articles_params
