@@ -5,7 +5,10 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    byebug
+    # Revisit to add algorithm to article params
+    algorithm = Algorithm.find(params[:algorithm_id])
+    article = algorithm.articles.create(articles_params[:article])
+    redirect_to article_path(article)
   end
 
   def show
@@ -14,5 +17,9 @@ class ArticlesController < ApplicationController
 
   def index 
     @articles = Article.all
+  end
+
+  def articles_params
+    params.require(:article).permit(article: [:title, :article_content])
   end
 end

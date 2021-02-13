@@ -1,5 +1,4 @@
 <% @articles.each do |article| %>
   <%= article.algorithm.name %><br>
-  <%byebug%>
   <%= link_to article.title, article_path(article.id) %><br>
 <% end %>
