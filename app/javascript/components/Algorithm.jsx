@@ -40,7 +40,7 @@ class Algorithm extends React.Component {
         </p>
         <hr></hr>
         <b className="pr-3 mb-2">Language:</b>
-        <select onChange={e => this.languageOptions(e)}>
+        <select id="selected-language" onChange={e => this.languageOptions(e)}>
           <option disabled defaultValue>
             {" "}
             --{" "}

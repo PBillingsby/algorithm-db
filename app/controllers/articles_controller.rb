@@ -15,13 +15,10 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
-  def index 
-    @articles = Article.all
+  def index
     if params[:article]
-      byebug
+      @articles = Article.where(algorithm: Algorithm.find_by(name: params[:algorithm]))
     end
-    puts "----------------------"
-    puts "HERE ARE THE #{params}"
   end
 
   def articles_params

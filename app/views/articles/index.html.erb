@@ -1,8 +1,9 @@
 <%= form_tag do %>
-  <%= select_tag('articles', options_for_select(@articles.map {|article| [article.algorithm.name]}.uniq), include_blank: true, :onchange =>  "findArticles(event.target.value)")  %>
+  <%= select_tag('articles', options_for_select(Article.all.map {|article| [article.algorithm.name]}.uniq), include_blank: true, :onchange =>  "findArticles(event.target.value)")  %>
 <% end %>
-<!--<% @articles.each do |article| %>
-  <%= article.algorithm.name %><br>
-  <%= link_to article.title, article_path(article.id) %><br>
+<% if @articles %>
+  <% @articles.each do |article| %>
+    <%= article.algorithm.name %><br>
+    <%= link_to article.title, article_path(article.id) %><br>
+  <% end %>
 <% end %>
--->

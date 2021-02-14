@@ -20,11 +20,19 @@ var ReactRailsUJS = require("react_ujs");
 ReactRailsUJS.useContext(componentRequireContext);
 
 window.findArticles = algorithmName => {
-  fetch(`http://localhost:3000/articles?algorithm=${algorithmName}`, {
-    method: "GET"
-  })
-    .then(resp => resp.json())
-    .then(obj => {
-      debugger;
-    });
+  return fetch(`http://localhost:3000/articles?algorithm=${algorithmName}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    }
+  });
+};
+document.addEventListener("DOMContentLoaded", () => {
+  getLanguage();
+});
+window.getLanguage = () => {
+  document
+    .getElementById("hidden_language")
+    .setAttribute("value", document.getElementById("selected-language").value);
 };
