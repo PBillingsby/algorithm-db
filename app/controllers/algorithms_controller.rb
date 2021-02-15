@@ -21,9 +21,14 @@ class AlgorithmsController < ApplicationController
 
   def update
     algorithm = Algorithm.find(params[:id])
-    byebug
     algorithm.examples.create(example: params[:algorithm][:example][:example], language: params[:algorithm][:example][:language])
     redirect_to algorithm_path(algorithm), :flash => { :message => "Example added", :class => 'alert-success' }
+  end
+
+  def destroy
+    algorithm = Algorithm.find(params[:id])
+    algorithm.delete
+    redirect_to algorithms_path, :flash => { :message => "#{algorithm.name} removed", :class => 'alert-danger' }
   end
 
   def algorithms_params

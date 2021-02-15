@@ -18,6 +18,9 @@ class ArticlesController < ApplicationController
   def index
     if params[:article]
       @articles = Article.where(algorithm: Algorithm.find_by(name: params[:algorithm]))
+      redirect_to articles_path, articles: @articles
+    else
+      @articles = Article.all
     end
   end
 

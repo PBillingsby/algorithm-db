@@ -1,6 +1,7 @@
 <div class="row mx-auto container">
   <div class="col mx-auto min-vw-75">
     <%= react_component("Algorithm", { algorithm: @algorithm, examples: @algorithm.examples, key: @algorithm.id }, {prerender: true}) %>
+    <%= link_to 'Delete', algorithm_path(@algorithm), method: :delete, data: { confirm: "Are you certain you want to delete #{@algorithm.name}?" }%>
   </div>
   <div class="text-center col">
     <%= render 'form', f:@algorithm, a:@algorithm.examples, html: { class: 'text-right'} %>

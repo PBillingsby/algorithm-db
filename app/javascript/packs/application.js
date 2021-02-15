@@ -28,11 +28,11 @@ window.findArticles = algorithmName => {
     }
   });
 };
-document.addEventListener("DOMContentLoaded", () => {
-  getLanguage();
-});
-window.getLanguage = () => {
-  document
-    .getElementById("hidden_language")
-    .setAttribute("value", document.getElementById("selected-language").value);
-};
+// document.addEventListener("DOMContentLoaded", () => {
+//   getLanguage();
+// });
+// window.getLanguage = () => {
+//   document
+//     .getElementById("hidden_language")
+//     .setAttribute("value", document.getElementById("selected-language").value);
+// };
