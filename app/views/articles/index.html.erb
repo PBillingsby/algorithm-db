@@ -2,8 +2,8 @@
   <%= select_tag('articles', options_for_select(Article.all.map {|article| [article.algorithm.name]}.uniq), include_blank: true, :onchange =>  "findArticles(event.target.value)")  %>
 <% end %>
 <% if @articles %>
-  <% @articles.each do |article| %>
+  <% @articles.each_with_index do |article, index| %>
     <%= article.algorithm.name %><br>
-    <%= link_to article.title, article_path(article.id) %><br>
+    <%= link_to index + 1, article_path(article.id) %><br>
   <% end %>
 <% end %>
