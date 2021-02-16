@@ -21,3 +21,7 @@
 .scroll-bar {
   overflow-y: scroll;
 }
+
+body {
+  background-color: #333;
+}
