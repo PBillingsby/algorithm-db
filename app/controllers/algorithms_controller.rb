@@ -32,6 +32,6 @@ class AlgorithmsController < ApplicationController
   end
 
   def algorithms_params
-    params.require(:algorithm).permit(:name, :best_case, :worst_case, :steps, :example, examples_attributes: [:example, :language])
+    params.require(:algorithm).permit(:name, :best_case, :worst_case, :steps, examples_attributes: [:example, :language])
   end
 end

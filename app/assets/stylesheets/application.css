@@ -14,14 +14,15 @@
  *= require_self
  */
 .code-min {
-  min-width: 40vw;
+  min-width: 20vw;
+  max-width: 60vw;
   max-height: 50vh;
 }
 
-.scroll-bar {
+#scroll-bar {
+  background: transparent;
   overflow-y: scroll;
 }
-
 body {
   background-color: #333;
 }

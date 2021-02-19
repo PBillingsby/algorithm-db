@@ -49,25 +49,26 @@ class Algorithm extends React.Component {
             return <option>{lang}</option>;
           })}
         </select>
-        <div className="code-min d-inline-block mx-auto scroll-bar">
-          {examples
-            .filter(example => example.language == this.state.language)
-            .map((eg, index) => {
-              return (
-                <span>
-                  <p className="pt-4">{++index}.</p>
-                  <div className="m-4 p-3 bg-light border border-black">
-                    <code>
-                      <pre>{eg.example}</pre>
-                    </code>
-                  </div>
-                  <button
-                    className="ml-4 btn-sm btn btn-outline-secondary"
-                    onClick={() => this.deleteExample(eg.language, eg)}
-                  >{`Delete ${eg.language} Example ${index}`}</button>
-                </span>
-              );
-            })}
+        <div className="code-min mx-auto pr-4" id="scroll-bar">
+          <ol>
+            {examples
+              .filter(example => example.language == this.state.language)
+              .map((eg, index) => {
+                return (
+                  <li>
+                    <div className="mt-4 p-3 bg-light border border-black">
+                      <pre>
+                        <code>{eg.example}</code>
+                      </pre>
+                    </div>
+                    <button
+                      className="ml-4 mt-2 btn-sm btn btn-outline-secondary"
+                      onClick={() => this.deleteExample(eg.language, eg)}
+                    >{`Delete Example ${index + 1}`}</button>
+                  </li>
+                );
+              })}
+          </ol>
         </div>
       </div>
     );
