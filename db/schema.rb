@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_02_10_013720) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "algorithms", force: :cascade do |t|
     t.string "name"
     t.string "worst_case"
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_02_10_013720) do
   end
 
   create_table "articles", force: :cascade do |t|
-    t.integer "algorithm_id"
+    t.bigint "algorithm_id"
     t.string "title"
     t.text "article_content"
     t.index ["algorithm_id"], name: "index_articles_on_algorithm_id"
