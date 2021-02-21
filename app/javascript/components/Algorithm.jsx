@@ -14,7 +14,7 @@ class Algorithm extends React.Component {
   };
   deleteExample = (language, example) => {
     const stateLanguage = language;
-    fetch(`http://localhost:3000/examples/${example.id}`, {
+    fetch(`https://cryptic-sierra-84151.herokuapp.com/${example.id}`, {
       method: "DELETE",
       headers: {
         "Content-type": "application/json; charset=UTF-8"

@@ -1,30 +1,30 @@
 <%= simple_form_for @algorithm, html: { class: 'text-center'} do |f| %>
-  <div class="w-50 mx-auto">
-    <div class="form-group mx-auto w-50">
-      <%= f.label :name %>
+  <div class="w-sm mx-auto">
+    <div class="font-medium mx-auto  w-50">
+      <%= f.label :name, class: 'text-base' %>
       <%= f.text_field :name, class: 'form-control input-group' %>
     </div>
-    <div class="form-group mx-auto w-50">
+    <div class="font-medium w-50 mx-auto mw-sm">
       <%= f.label :steps %>
-      <%= f.text_area :steps, class: 'form-control' %>
+      <%= f.text_area :steps, class: 'w-12 focus:ring-indigo-500 form-control' %>
     </div>
-    <div class="form-group">
+    <div class="font-medium">
       <%= f.simple_fields_for :examples do |a| %>
-        <div class="form-group mx-auto w-50">
+        <div class="font-medium mx-auto  w-50">
           <%= a.label :example %>
-          <%= a.text_area :example, class: 'form-control' %>
+          <%= a.text_area :example, class: 'mx-auto' %>
         </div>
-        <div class="form-group">  
+        <div class="font-medium">  
           <%= a.label :language %>
           <%= a.select :language, options_for_select(Algorithm::LANGUAGES, "--") %>
         </div>
       <% end %>
     </div>
-    <div class="form-group">
+    <div class="font-medium">
       <%= f.label :worst_case %>
-      <%= f.select :worst_case, options_for_select(Algorithm::RUNTIME, "-"), class: 'form-select' %>
+      <%= f.select :worst_case, options_for_select(Algorithm::RUNTIME, "-") %>
     </div>
-    <div class="form-group">
+    <div class="font-medium">
       <%= f.label :best_case %>
       <%= f.select :best_case, options_for_select(Algorithm::RUNTIME, "-"), class: 'form-select' %>
     </div>
