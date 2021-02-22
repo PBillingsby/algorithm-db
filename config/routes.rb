@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'hello_world', to: 'hello_world#index'
   resources :algorithms, only: [:index, :show, :new, :create, :update, :destroy] do
     resource :examples, only: [:create]
@@ -6,6 +7,6 @@ Rails.application.routes.draw do
   end
   resources :examples, only: [:destroy]
   resources :articles, only: [:create, :show, :index]
-  root 'algorithms#index'
+  root 'users#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

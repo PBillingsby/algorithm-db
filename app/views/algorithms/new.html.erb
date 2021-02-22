@@ -6,13 +6,13 @@
     </div>
     <div class="font-medium w-50 mx-auto mw-sm">
       <%= f.label :steps %>
-      <%= f.text_area :steps, class: 'w-12 focus:ring-indigo-500 form-control' %>
+      <%= f.text_area :steps, class: 'w-12 form-control' %>
     </div>
     <div class="font-medium">
       <%= f.simple_fields_for :examples do |a| %>
         <div class="font-medium mx-auto  w-50">
           <%= a.label :example %>
-          <%= a.text_area :example, class: 'mx-auto' %>
+          <%= a.text_area :example, class: 'form-control' %>
         </div>
         <div class="font-medium">  
           <%= a.label :language %>
