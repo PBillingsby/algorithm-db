@@ -7,4 +7,7 @@ class UsersController < ApplicationController
   def create
     byebug
   end
+
+  def index
+  end
 end

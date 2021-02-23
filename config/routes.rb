@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'hello_world', to: 'hello_world#index'
   resources :algorithms, only: [:index, :show, :new, :create, :update, :destroy] do
     resource :examples, only: [:create]
     resource :articles, only: [:new, :create]
