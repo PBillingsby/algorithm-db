@@ -1,12 +1,12 @@
 class AlgorithmsController < ApplicationController
   include ApplicationHelper
   def new
-    @algorithm = Algorithm.new
+    @algorithm = current_user.algorithms.build
     @algorithm.examples.build
   end
 
   def create
-    algorithm = Algorithm.create(algorithms_params)
+    algorithm = current_user.algorithms.create(algorithms_params)
     flash[:message] = "#{algorithm.name} added"
     redirect_to algorithm_path(algorithm)
   end

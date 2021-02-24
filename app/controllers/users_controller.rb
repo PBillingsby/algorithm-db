@@ -9,5 +9,6 @@ class UsersController < ApplicationController
   end
 
   def index
+    @algorithms = current_user.algorithms.all
   end
 end

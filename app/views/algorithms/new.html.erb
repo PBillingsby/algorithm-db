@@ -1,31 +1,35 @@
 <%= simple_form_for @algorithm, html: { class: 'text-center'} do |f| %>
-  <div class="w-sm mx-auto">
-    <div class="font-medium mx-auto  w-50">
-      <%= f.label :name, class: 'text-base' %>
-      <%= f.text_field :name, class: 'form-control input-group' %>
+  <div class="relative mx-auto md:grid md:grid-cols-2">
+    <div class="divide-y divide-gray-200">
+    <div class="flex flex-col">
+      <div class="font-medium mx-auto">
+        <%= f.label :name, class: 'leading-loose' %>
+        <%= f.text_field :name, class: 'px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600' %>
+      </div>
     </div>
-    <div class="font-medium w-50 mx-auto mw-sm">
-      <%= f.label :steps %>
-      <%= f.text_area :steps, class: 'w-12 form-control' %>
     </div>
-    <div class="font-medium">
+    <div class="font-medium mx-auto mw-sm">
+      <%= f.label :steps, class: 'leading-loose' %>
+      <%= f.text_area :steps, class: 'px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600' %>
+    </div>
+    <div>
       <%= f.simple_fields_for :examples do |a| %>
-        <div class="font-medium mx-auto  w-50">
-          <%= a.label :example %>
-          <%= a.text_area :example, class: 'form-control' %>
+        <div class="font-medium mx-auto ">
+          <%= a.label :example, class: 'leading-loose' %>
+          <%= a.text_area :example, class: 'px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600' %>
         </div>
-        <div class="font-medium">  
-          <%= a.label :language %>
+        <div>  
+          <%= a.label :language, class: 'leading-loose' %>
           <%= a.select :language, options_for_select(Algorithm::LANGUAGES, "--") %>
         </div>
       <% end %>
     </div>
-    <div class="font-medium">
-      <%= f.label :worst_case %>
+    <div>
+      <%= f.label :worst_case, class: 'leading-loose' %>
       <%= f.select :worst_case, options_for_select(Algorithm::RUNTIME, "-") %>
     </div>
-    <div class="font-medium">
-      <%= f.label :best_case %>
+    <div>
+      <%= f.label :best_case, class: 'leading-loose' %>
       <%= f.select :best_case, options_for_select(Algorithm::RUNTIME, "-"), class: 'form-select' %>
     </div>
     <div class="text-center">

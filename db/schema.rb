@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2021_02_22_151407) do
     t.string "worst_case"
     t.string "best_case"
     t.text "steps"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

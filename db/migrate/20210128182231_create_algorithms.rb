@@ -5,6 +5,7 @@ class CreateAlgorithms < ActiveRecord::Migration[6.0]
       t.string :worst_case
       t.string :best_case
       t.text :steps
+      t.integer :user_id
 
       t.timestamps
     end
