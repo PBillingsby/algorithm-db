@@ -1,36 +1,36 @@
 <%= simple_form_for @algorithm, html: { class: 'text-center'} do |f| %>
   <div>
     <div class="flex flex-col mx-auto mb-4 max-w-xs">
-      <%= f.label :name, class: 'mb-2 text-lg text-grey-darkset' %>
+      <%= f.label :name, class: 'mb-2 text-lg text-gray-400' %>
       <%= f.text_field :name, class: 'rounded-md' %>
     </div>
     </div>
     <div class="flex flex-col mx-auto mb-4 max-w-xs">
-      <%= f.label :steps, class: 'mb-2 text-lg text-grey-darkset' %>
+      <%= f.label :steps, class: 'mb-2 text-lg text-gray-400' %>
       <%= f.text_area :steps, class: 'rounded-md' %>
     </div>
     <div class="mb-2">
       <%= f.simple_fields_for :examples do |a| %>
         <div class="flex flex-col mx-auto mb-4 max-w-xs mx-auto">
-          <%= a.label :example, class: 'mb-2 text-lg text-grey-darkset' %>
+          <%= a.label :example, class: 'mb-2 text-lg text-gray-400' %>
           <%= a.text_area :example, class: 'rounded-md' %>
         </div>
         <div class="mb-2 flex flex-col max-w-xs mx-auto">  
-          <%= a.label :language, class: 'mb-2 text-lg text-grey-darkset' %>
+          <%= a.label :language, class: 'mb-2 text-lg text-gray-400' %>
           <%= a.select :language, options_for_select(Algorithm::LANGUAGES, "--"), class: 'rounded-md' %>
         </div>
       <% end %>
     </div>
     <div class="mb-2 flex flex-col max-w-xs mx-auto">
-      <%= f.label :worst_case, class: 'mb-2 pb-2 text-lg text-grey-darkset' %>
+      <%= f.label :worst_case, class: 'mb-2 pb-2 text-lg text-gray-400' %>
       <%= f.select :worst_case, options_for_select(Algorithm::RUNTIME, "-") %>
     </div>
     <div class="mb-2 flex flex-col max-w-xs mx-auto">
-      <%= f.label :best_case, class: 'mb-2 font-medium text-lg text-grey-darkset' %>
+      <%= f.label :best_case, class: 'mb-2 text-lg text-gray-400' %>
       <%= f.select :best_case, options_for_select(Algorithm::RUNTIME, "-"), class: 'form-select' %>
     </div>
     <div class="text-center">
-      <%= f.submit %>
+      <%= f.submit 'Add algorithm', :class => 'p-2 rounded-sm hover:bg-gray-300 shadow-sm' %>
     </div>
   </div>
 <% end %>
