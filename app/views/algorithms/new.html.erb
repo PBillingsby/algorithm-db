@@ -1,35 +1,32 @@
 <%= simple_form_for @algorithm, html: { class: 'text-center'} do |f| %>
-  <div class="relative mx-auto md:grid md:grid-cols-2">
-    <div class="divide-y divide-gray-200">
-    <div class="flex flex-col">
-      <div class="font-medium mx-auto">
-        <%= f.label :name, class: 'leading-loose' %>
-        <%= f.text_field :name, class: 'px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600' %>
-      </div>
+  <div>
+    <div class="flex flex-col mx-auto mb-4 max-w-xs">
+      <%= f.label :name, class: 'mb-2 text-lg text-grey-darkset' %>
+      <%= f.text_field :name, class: 'rounded-md' %>
     </div>
     </div>
-    <div class="font-medium mx-auto mw-sm">
-      <%= f.label :steps, class: 'leading-loose' %>
-      <%= f.text_area :steps, class: 'px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600' %>
+    <div class="flex flex-col mx-auto mb-4 max-w-xs">
+      <%= f.label :steps, class: 'mb-2 text-lg text-grey-darkset' %>
+      <%= f.text_area :steps, class: 'rounded-md' %>
     </div>
-    <div>
+    <div class="mb-2">
       <%= f.simple_fields_for :examples do |a| %>
-        <div class="font-medium mx-auto ">
-          <%= a.label :example, class: 'leading-loose' %>
-          <%= a.text_area :example, class: 'px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600' %>
+        <div class="flex flex-col mx-auto mb-4 max-w-xs mx-auto">
+          <%= a.label :example, class: 'mb-2 text-lg text-grey-darkset' %>
+          <%= a.text_area :example, class: 'rounded-md' %>
         </div>
-        <div>  
-          <%= a.label :language, class: 'leading-loose' %>
-          <%= a.select :language, options_for_select(Algorithm::LANGUAGES, "--") %>
+        <div class="mb-2 flex flex-col max-w-xs mx-auto">  
+          <%= a.label :language, class: 'mb-2 text-lg text-grey-darkset' %>
+          <%= a.select :language, options_for_select(Algorithm::LANGUAGES, "--"), class: 'rounded-md' %>
         </div>
       <% end %>
     </div>
-    <div>
-      <%= f.label :worst_case, class: 'leading-loose' %>
+    <div class="mb-2 flex flex-col max-w-xs mx-auto">
+      <%= f.label :worst_case, class: 'mb-2 pb-2 text-lg text-grey-darkset' %>
       <%= f.select :worst_case, options_for_select(Algorithm::RUNTIME, "-") %>
     </div>
-    <div>
-      <%= f.label :best_case, class: 'leading-loose' %>
+    <div class="mb-2 flex flex-col max-w-xs mx-auto">
+      <%= f.label :best_case, class: 'mb-2 font-medium text-lg text-grey-darkset' %>
       <%= f.select :best_case, options_for_select(Algorithm::RUNTIME, "-"), class: 'form-select' %>
     </div>
     <div class="text-center">
