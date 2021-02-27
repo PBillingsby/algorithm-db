@@ -5,4 +5,8 @@ class User < ApplicationRecord
   has_many :articles, through: :algorithms
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  def get_leaderboard_data
+    byebug
+  end
 end

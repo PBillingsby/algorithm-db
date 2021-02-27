@@ -6,7 +6,13 @@ class AlgorithmsController < ApplicationController
   end
 
   def create
-    algorithm = current_user.algorithms.create(algorithms_params)
+    algorithm_found = Algorithm.find_by(name: algorithms_params[:name])
+    if algorithm_found
+      algorithm_found.examples.create(algorithms_params[:examples_attributes]["0"])
+      algorithm = algorithm_found
+    else
+      algorithm = current_user.algorithms.create(algorithms_params)
+    end
     flash[:message] = "#{algorithm.name} added"
     redirect_to algorithm_path(algorithm)
   end
