@@ -16,22 +16,35 @@ class Scoreboard extends React.Component {
         });
       });
   }
-  // componentDidUpdate() {
-  //   this.state.scores.map(obj => {
-  //     for (let i in obj) {
-  //       console.log(Object.values(obj[i]));
-  //     }
-  //   });
-  // }
+  componentDidUpdate() {
+    // this.state.scores.map(obj => {
+    //   for (let i in obj) {
+    //     console.log(Object.values(obj[i]));
+    //   }
+    // });
+  }
+
   render() {
     return (
-      <div>
-        {this.state.scores &&
-          this.state.scores.map(score => {
-            for (let i in score) {
-              console.log(Object.values(score[i]));
-            }
-          })}
+      <div className="text-center mx-auto md:p-8 p-2">
+        <h1>LEADERBOARD</h1>
+        <select>
+          <option>All</option>
+        </select>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mx-auto">
+          {this.state.scores &&
+            this.state.scores.map(score => {
+              return (
+                <div className="md:p-8 p-2 bg-white">
+                  <h3 className="text-indigo-500 font-semibold text-base mt-2">
+                    {score.name}
+                  </h3>
+                  <p>Algorithms: {score.algorithms}</p>
+                  <p>Articles: {score.articles}</p>
+                </div>
+              );
+            })}
+        </div>
       </div>
     );
   }

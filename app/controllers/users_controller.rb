@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def scoreboard
     users_objects = []
     User.all.each do |user|
-      users_objects << {"#{user.username}": {algorithms: user.algorithms.count, articles: user.articles.count}}
+      users_objects << {name: user.username, algorithms: user.algorithms.count, articles: user.articles.count}
     end
     render json: users_objects
   end
