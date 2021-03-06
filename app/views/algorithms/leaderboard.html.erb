@@ -1,8 +1,0 @@
-
-
-<% User.all.each do |u| %>
-  <h4><%= u.username %></h4>
-  <% u.get_leaderboard_data.each do |attribute, count| %>
-    <p><%= attribute %>: <%= count %></p>
-  <% end %>
-<% end %>

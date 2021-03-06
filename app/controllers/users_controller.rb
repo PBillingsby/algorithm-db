@@ -1,21 +1,26 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  include UsersHelper
   def new
 
   end
 
   def create
-    byebug
   end
 
   def index
     @algorithms = current_user.algorithms.all
   end
+
   def scoreboard
-    users_objects = []
-    User.all.each do |user|
-      users_objects << {name: user.username, algorithms: user.algorithms.count, articles: user.articles.count}
+    if !params[:query]
+      @users = User.all
+    else
+      @users = helpers.handle_query(User.user_query(params[:query]), params[:query].downcase) # Sets instance variable for users found by scope method to handle_query helper
+      @query = params[:query].downcase.to_sym # Sends query to view for dynamic iterator
     end
-    render json: users_objects
+  end
+  def users_params
+    params.permit(:query)
   end
 end
