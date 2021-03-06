@@ -1,12 +1,15 @@
-<div class="row mx-auto container">
-  <div class="col mx-auto min-vw-75">
-    <%= react_component("Algorithm", { algorithm: @algorithm, examples: @algorithm.examples, key: @algorithm.id }, {prerender: true}) %>
+<h1 class="text-center text-4xl"><%= @algorithm.name %></h1>
+<div class="grid grid-cols-2 px-3"> 
+  <div class="mx-auto container">
+    <div class="mx-auto min-vw-75">
+      <%= react_component("Algorithm", { algorithm: @algorithm, examples: @algorithm.examples, key: @algorithm.id }, {prerender: true}) %>
+    </div>
+    <button class="ml-4 btn-sm btn btn-outline-secondary"><%= link_to "Delete #{@algorithm.name}", algorithm_path(@algorithm), method: :delete, data: { confirm: "Are you certain you want to delete #{@algorithm.name}?" }%></button>
+    <button class="ml-4 btn-sm btn btn-outline-secondary"><%= link_to "Add #{@algorithm.name} article", new_algorithm_articles_path(@algorithm) %></button>
   </div>
-  <div class="text-center col">
-    <%= render 'form', f:@algorithm, a:@algorithm.examples, html: { class: 'text-right'} %>
+  <div class="text-center mx-auto pt-4">
+    <div class="text-center">
+      <%= render 'form', f:@algorithm, a:@algorithm.examples, html: { class: 'text-right'} %>
+    </div>
   </div>
-</div>
-<div class="text-center pt-4">
-  <button class="ml-4 btn-sm btn btn-outline-secondary"><%= link_to "Delete #{@algorithm.name}", algorithm_path(@algorithm), method: :delete, data: { confirm: "Are you certain you want to delete #{@algorithm.name}?" }%></button>
-  <button class="ml-4 btn-sm btn btn-outline-secondary"><%= link_to "Add #{@algorithm.name} article", new_algorithm_articles_path(@algorithm) %></button>
 </div>

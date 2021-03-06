@@ -31,7 +31,6 @@ class Algorithm extends React.Component {
     return (
       <div className="col-lg">
         <input type="hidden" name="stateLanguage" value={this.state.language} />
-        <h1>{this.props.algorithm.name}</h1>
         <p>
           <b>Worst case:</b> {this.props.algorithm.worst_case}
         </p>

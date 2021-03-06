@@ -37,7 +37,9 @@
       <% if alert %>
         <p class="alert alert-danger"><%= alert %></p>
       <% end %>
-      <%= yield %>
+      <div class="py-20 px-3">
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>

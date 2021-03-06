@@ -1,0 +1,25 @@
+<div class="grid grid-cols-3 text-center  pt-0.5 fixed w-full bg-gray-100 font-medium">
+  <ul class="nav text-center pt-2.5">
+    <li class="block pr-3 h-8 w-auto inline-block">
+      <a class="text-green-700" href="/">Home</a>
+    </li>
+    <li class="block h-8 pr-3 w-auto inline-block">
+      <a class="text-green-700" href="/algorithms">Algorithms</a>
+    </li>
+    <li class="block h-8 pr-3 w-auto inline-block">
+      <a class="text-green-700" href="/articles">Articles</a>
+    </li>
+  </ul>
+  <span class="inline-block">
+    <img src="https://www.flaticon.com/svg/vstatic/svg/2103/2103620.svg?token=exp=1615046897~hmac=74923fb44ece7693b7e116dcdf18f012" class="w-7 mx-auto">
+    AlgorithmDB
+  </span>
+  <div>
+    <span class="text-green-700 px-3 pt-2.5 pr-2.5 inline-block">
+      <img src="https://www.flaticon.com/svg/vstatic/svg/1621/1621561.svg?token=exp=1615046242~hmac=23b9bf7e2c8bc8d778276d1505190994" class="w-3 pt-2 float-left"> <%= current_user.username %>
+    </span> 
+    <li class="block h-8 px-3 w-auto inline-block">
+      <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'text-green-700' %>
+    </li>
+  </div>
+</div>

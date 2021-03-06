@@ -30,4 +30,9 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  users:
+    index:
+      algorithm_count:
+        one: "You have 1 algorithm in your database"
+        other: "You have %{count} algorithms in your database"
+        none: "You have no algorithms in your database. %{break} Add some %{link_open}here%{link_close}"
