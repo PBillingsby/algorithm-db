@@ -1,4 +1,3 @@
-<% if user_signed_in? %>
   Hello, <%= current_user.username %><br>
   <%= t('users.index.algorithm_count',
     count: current_user.algorithms.count,
@@ -6,13 +5,4 @@
     link_open: raw('<a href="/algorithms/new">'),
     link_close: raw('</a>')
   ) %>
-<% end %></ul>
 
-<div class="pt-16">
-  <% User.all.each do |u| %>
-    <h4><%= u.username %></h4>
-    <% u.get_leaderboard_data.each do |attribute, count| %>
-      <p><%= attribute %>: <%= count %></p>
-    <% end %>
-  <% end %>
-</div>
