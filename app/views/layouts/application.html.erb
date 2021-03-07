@@ -15,23 +15,16 @@
       <% if current_user %>
         <%= render 'layouts/navbar' %>
       <% end %>
-      <!-- <% if flash[:message] %>
-        <div class="alert text-center <%= flash[:class] %>">
-          <span onclick="this.parentElement.style.display='none';">
-            &times;
-          </span>
-          <%= flash[:message] %>
-        </div>
-      <% end %> -->
       <% if notice %>
         <p class="alert alert-success"><%= notice %></p>
       <% end %>
       <% if alert %>
         <p class="alert alert-danger"><%= alert %></p>
       <% end %>
-      <div class="px-3 pt-14">
+      <div class="p-3 relative top-16 w-11/12 mx-auto font-mono border border-opacity-30 border-black rounded-xl">
         <%= yield %>
       </div>
+      <%= render 'layouts/footer'%>
     </div>
   </body>
 </html>

@@ -1,3 +1,4 @@
+<div class="font-mono">
   Hello, <%= current_user.username %><br>
   <%= t('users.index.algorithm_count',
     count: current_user.algorithms.count,
@@ -5,4 +6,5 @@
     link_open: raw('<a href="/algorithms/new">'),
     link_close: raw('</a>')
   ) %>
+</div>
 
