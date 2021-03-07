@@ -11,9 +11,9 @@
   </head>
 
   <body>
-    <div>
+    <div class="mt-0">
       <% if current_user %>
-        <%= render 'layouts/navbar' %>
+       <%= render 'layouts/navbar' %>
       <% end %>
       <% if notice %>
         <p class="alert alert-success"><%= notice %></p>
@@ -21,7 +21,7 @@
       <% if alert %>
         <p class="alert alert-danger"><%= alert %></p>
       <% end %>
-      <div class="p-3 relative top-16 w-11/12 mx-auto font-mono border border-opacity-30 border-black rounded-xl">
+      <div class="p-3 mt-16 flex flex-col h-screen w-11/12 mx-auto font-mono border border-opacity-30 border-black rounded-xl">
         <%= yield %>
       </div>
       <%= render 'layouts/footer'%>

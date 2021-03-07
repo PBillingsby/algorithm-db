@@ -23,5 +23,7 @@
   background: transparent;
   overflow-y: scroll;
 }
-body {
+.nav-bar {
+  top: 0;
+  padding-top: 70px;
 }

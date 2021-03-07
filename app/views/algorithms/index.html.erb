@@ -1,10 +1,12 @@
-<h1>Algorithms</h1><br>
-<% if @algorithms.count > 0 %>
-  <ol>
+  <h1>Algorithms</h1>
+  <ol class="pl-4">
+  <% if @algorithms.count > 0 %>
     <% @algorithms.map do |algorithm| %>
       <li><%= link_to algorithm.name, algorithm_path(algorithm) %></li>
     <% end %>
   </ol>
-<% else %>
+  <% else %>
+    <%= link_to 'Add algorithm', new_algorithm_path %>
+  <% end %>
+  <br>
   <%= link_to 'Add algorithm', new_algorithm_path %>
-<% end %>
