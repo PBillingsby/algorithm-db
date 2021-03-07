@@ -30,7 +30,7 @@
       <%= f.select :best_case, options_for_select(Algorithm::RUNTIME, "-"), class: 'form-select' %>
     </div>
     <div class="text-center">
-      <%= f.submit 'Add algorithm', :class => 'p-2 rounded-sm hover:bg-gray-300 shadow-sm' %>
+      <%= f.submit 'Add algorithm', :class => 'p-2 rounded-sm border border-black border-opacity-0.4 hover:bg-gray-300 shadow-sm' %>
     </div>
   </div>
 <div class="form-group w-50 mx-auto">
@@ -47,6 +47,6 @@
       </div>
     <% end %>
   </div>
-  <%= f.submit "Add new example" %>
+  <%= f.submit "Add new example", class: 'submit-btn' %>
 </div>
 <% end %>
