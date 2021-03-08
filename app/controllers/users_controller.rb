@@ -1,12 +1,17 @@
-class UsersController < ApplicationController
+class Users::SessionsController < Devise::SessionsController
   before_action :authenticate_user!
   include UsersHelper
   def new
-
+    puts 'made it'
   end
 
   def create
-    
+    byebug
+    super do |user|
+      if user.persisted?
+        user.update(foo: :bar)
+      end
+    end
   end
 
   def index

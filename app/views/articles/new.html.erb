@@ -1,13 +1,13 @@
 <%= form_for [@algorithm, @article], html: { class: 'text-center'} do |f| %>
   <div class="w-50 mx-auto">
-    <div class="flex flex-col mx-auto mb-4 max-w-xs">
+    <div class="form-section">
       <%= f.fields_for @article do |a| %>
-        <div class="flex flex-col mx-auto mb-4 max-w-xs">
-          <%= a.label :title, class: 'mb-2 text-lg text-gray-400' %>
+        <div class="form-section">
+          <%= a.label :title, class: 'form-label' %>
           <%= a.text_field :title, class: 'rounded-md' %>
         </div>
-        <div class="flex flex-col mx-auto mb-4 max-w-xs">
-          <%= a.label :article_content, class: 'mb-2 text-lg text-gray-400' %>
+        <div class="form-section">
+          <%= a.label :article_content, class: 'form-label' %>
           <%= a.text_area :article_content, class: 'rounded-md' %>
         </div>
       <% end %>

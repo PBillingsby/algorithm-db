@@ -1,28 +1,28 @@
 <div class="text-center">
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <div class="text-center text-red-400"><%= f.error_notification %></div>
-      <div class="flex flex-col mx-auto mb-4 max-w-xs">
-         <%= f.label :username, class: 'mb-2 text-lg text-gray-400' %>
+      <div class="form-section">
+         <%= f.label :username, class: 'form-label' %>
         <%= f.input :username,
                     label: false,
                     autofocus: true,
                     input_html: { autocomplete: "username", class: 'rounded-md' }%>
       </div>
-      <div class="flex flex-col mx-auto mb-4 max-w-xs">
-        <%= f.label :email, class: 'mb-2 text-lg text-gray-400' %>
+      <div class="form-section">
+        <%= f.label :email, class: 'form-label' %>
         <%= f.input :email,
                     label: false,
                     autofocus: true,
                     input_html: { autocomplete: "email", class: 'rounded-md' }%>
       </div>
-      <div class="flex flex-col mx-auto mb-4 max-w-xs">
-         <%= f.label :password, class: 'mb-2 text-lg text-gray-400' %>
+      <div class="form-section">
+         <%= f.label :password, class: 'form-label' %>
         <%= f.input :password,
                     label: false,
                     input_html: { autocomplete: "new-password", class: 'rounded-md' } %>
       </div>
-      <div class="flex flex-col mx-auto mb-4 max-w-xs">
-        <%= f.label :password_confirmation, class: 'mb-2 text-lg text-gray-400' %>
+      <div class="form-section">
+        <%= f.label :password_confirmation, class: 'form-label' %>
         <%= f.input :password_confirmation,
                     label: false,
                     input_html: { autocomplete: "new-password", class: 'rounded-md' } %>

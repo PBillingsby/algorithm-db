@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
   resources :algorithms, only: [:index, :show, :new, :create, :update, :destroy] do
     resource :examples, only: [:create]
     resource :articles, only: [:new, :create]
