@@ -6,6 +6,8 @@ class User < ApplicationRecord
   attr_writer :login
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  scope :user_query, ->(query) {joins(query.downcase.to_sym)}
+  validates_uniqueness_of :username, :case_sensitive => false
 
+  scope :user_query, ->(query) {joins(query.downcase.to_sym)}
+  
 end
