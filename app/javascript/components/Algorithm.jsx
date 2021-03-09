@@ -31,25 +31,29 @@ class Algorithm extends React.Component {
     return (
       <div className="col-lg">
         <input type="hidden" name="stateLanguage" value={this.state.language} />
-        <hr></hr>
-        <b className="pr-3 mb-2">Language:</b>
-        <select
-          id="rounded selected-language"
-          onChange={e => this.languageOptions(e)}
-        >
-          <option disabled defaultValue>
-            {" "}
-            --{" "}
-          </option>
-          {unique_languages.map(lang => {
-            return <option>{lang}</option>;
-          })}
-        </select>
-        <p>
-          <b>Worst case:</b> {this.props.algorithm.worst_case}
+        <hr class="pt-4"></hr>
+        <span className="inline-block">
+          <p className="inline-block pr-3 pt-3 text-green-700 mb-2">
+            Language:
+          </p>
+          <select
+            id="rounded selected-language"
+            onChange={e => this.languageOptions(e)}
+          >
+            <option disabled defaultValue>
+              {" "}
+              --{" "}
+            </option>
+            {unique_languages.map(lang => {
+              return <option>{lang}</option>;
+            })}
+          </select>
+        </span>
+        <p className="text-green-700">
+          Worst case: {this.props.algorithm.worst_case}
         </p>
-        <p>
-          <b>Best case:</b> {this.props.algorithm.best_case}
+        <p className="text-green-700">
+          Best case: {this.props.algorithm.best_case}
         </p>
         <div className="rounded code-min mx-auto pr-4" id="scroll-bar">
           <ol>
@@ -64,7 +68,7 @@ class Algorithm extends React.Component {
                       </pre>
                     </div>
                     <button
-                      className="submit-btn ml-4 mt-4"
+                      className="submit-btn text-red-400 ml-4 mt-4"
                       onClick={() => this.deleteExample(eg.language, eg)}
                     >{`Delete Example ${index + 1}`}</button>
                   </li>

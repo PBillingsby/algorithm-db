@@ -27,7 +27,8 @@ class AlgorithmsController < ApplicationController
 
   def update
     algorithm = Algorithm.find(params[:id])
-    algorithm.examples.create(example: params[:algorithm][:example][:example], language: params[:algorithm][:example][:language])
+    byebug
+    algorithm.examples.create(params[:example])
     redirect_to algorithm_path(algorithm), :flash => { :message => "Example added", :class => 'alert-success' }
   end
 
@@ -38,6 +39,6 @@ class AlgorithmsController < ApplicationController
   end
 
   def algorithms_params
-    params.require(:algorithm).permit(:name, :best_case, :worst_case, :steps, examples_attributes: [:example, :language])
+    params.permit(:name, :best_case, :worst_case, :steps, examples_attributes: [:example, :language])
   end
 end

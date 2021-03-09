@@ -10,7 +10,7 @@
     @apply flex flex-col mx-auto mb-4 max-w-xs;
   }
   .form-label {
-    @apply mb-2 text-lg text-gray-400;
+    @apply mb-2 text-lg text-green-700;
   }
 }
 
