@@ -15,6 +15,5 @@
 }
 
 .header-text {
-  text-shadow: -1px 0 rgb(1, 102, 6), 0 1.25px rgb(1, 102, 6),
-    1.25px 0 rgb(1, 102, 6), 0 -1px rgb(1, 102, 6);
+  text-shadow: -1px 0 black, 0 1.5px black, 1.5px 0 black, 0 -1px black;
 }
