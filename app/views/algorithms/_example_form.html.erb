@@ -1,13 +1,13 @@
-<div class="form-group w-50 mx-auto">
-  <h3 class="pt-2">Add new example</h3> 
-  <div class="form-group text-center">
+<div class="w-50 mx-auto">
+  <h3 class="pt-2">Add <%= @algorithm.name %> example</h3> 
+  <div class="form-section">
     <%= fields_for @algorithm.examples.new do |a| %>
-      <div class="form-group text-center">
-        <%= a.label :example %><br>
+      <div class="text-center">
+        <%= a.label :example, class: 'form-label' %><br>
         <%= a.text_area :example, class: 'form-control' %>
       </div>
-      <div class="form-group text-center">  
-        <%= a.label :language %><br>
+      <div class="text-center">  
+        <%= a.label :language, class: 'form-label' %><br>
         <%= a.select :language, options_for_select(Algorithm::LANGUAGES, "--"), class: 'form-control' %>
       </div>
     <% end %>
