@@ -26,14 +26,15 @@ class Algorithm extends React.Component {
     );
   };
   render() {
+    debugger;
     let examples = [...this.props.examples];
     let unique_languages = [...new Set(examples.map(eg => eg.language))];
     return (
       <div className="col-lg">
         <input type="hidden" name="stateLanguage" value={this.state.language} />
-        <hr class="pt-4"></hr>
+        <hr className="pt-4"></hr>
         <span className="inline-block">
-          <p className="inline-block pr-3 pt-3 text-green-700 mb-2">
+          <p className="inline-block pr-3 py-3 text-green-700 mb-2">
             Language:
           </p>
           <select
@@ -49,11 +50,13 @@ class Algorithm extends React.Component {
             })}
           </select>
         </span>
-        <p className="text-green-700">
-          Worst case: {this.props.algorithm.worst_case}
+        <p>
+          <span className="text-green-700">Worst case:</span>{" "}
+          {this.props.algorithm.worst_case}
         </p>
-        <p className="text-green-700">
-          Best case: {this.props.algorithm.best_case}
+        <p>
+          <span className="text-green-700">Best case:</span>{" "}
+          {this.props.algorithm.best_case}
         </p>
         <div className="rounded code-min mx-auto pr-4" id="scroll-bar">
           <ol>
