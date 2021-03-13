@@ -7,7 +7,7 @@
     @apply p-2 rounded-md shadow-lg border border-black border-opacity-10 hover:bg-gray-300 shadow-sm;
   }
   .form-section {
-    @apply flex flex-col mx-auto mb-4 max-w-xs;
+    @apply flex flex-col mx-auto mb-4;
   }
   .form-label {
     @apply mb-2 text-lg text-green-700;

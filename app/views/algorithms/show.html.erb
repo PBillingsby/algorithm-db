@@ -8,10 +8,9 @@
     <button class="ml-4 btn-sm btn btn-outline-secondary"><%= button_to "Add #{@algorithm.name} article", new_algorithm_articles_path(@algorithm), method: :get, class: 'submit-btn' %></button>
   </div>
   <div class="text-center mx-auto pt-4">
-    <div class="text-center">
-      <%= simple_form_for @algorithm, remote: true, html: { class: 'text-center'} do |f| %>
-        <%= render 'example_form', f:@algorithm %>
-      <% end %>
-    </div>
+    <%= form_for @algorithm, html: { class: 'text-center' } do |f| %>
+      <%= render 'algorithms/example_form', f:f %>
+      <%= submit_tag "Add new example", class: 'mt-2 submit-btn' %>
+    <% end %>
   </div>
 </div>

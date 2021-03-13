@@ -9,12 +9,18 @@
     ) %>
   </div>
   <div class="mx-auto">
+    <% if !current_user.algorithms.empty? %>
     <h1 class="text-2xl underline pb-2">My Algorithms</h1>
-    <ol class="list-decimal pl-10">
-      <% current_user.algorithms.each do |algorithm| %>
-        <li><%= link_to algorithm.name, algorithm_path(algorithm), class: 'text-green-700' %></li>
-      <% end %>
-    </ol>
+      <ol class="list-decimal pl-10">
+        <% current_user.algorithms.each do |algorithm| %>
+          <li><%= link_to algorithm.name, algorithm_path(algorithm), class: 'text-green-700' %></li>
+        <% end %>
+      </ol>
+    <% else %>
+      <div class="mt-16">
+        <p>You do not have any algorithms yet. Add some <%= link_to 'here', new_algorithm_path, class: 'text-green-700' %></p>
+      </div>
+    <% end %>
   </div>
 </div>
 

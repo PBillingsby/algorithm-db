@@ -1,7 +1,7 @@
 <div class="w-50 mx-auto">
   <h3 class="pt-2">Add <%= @algorithm.name %> example</h3> 
   <div class="form-section">
-    <%= fields_for @algorithm.examples.new do |a| %>
+    <%= f.fields_for :example do |a| %>
       <div class="text-center">
         <%= a.label :example, class: 'form-label' %><br>
         <%= a.text_area :example, class: 'form-control' %>
@@ -12,5 +12,4 @@
       </div>
     <% end %>
   </div>
-  <%= submit_tag "Add new example", class: 'mt-2 submit-btn' %>
 </div>

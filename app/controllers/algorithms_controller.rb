@@ -7,6 +7,7 @@ class AlgorithmsController < ApplicationController
 
   def create
     algorithm_found = Algorithm.find_by(name: algorithms_params[:name])
+    byebug
     if algorithm_found
       algorithm_found.examples.create(algorithms_params[:examples_attributes]["0"])
       algorithm = algorithm_found
@@ -39,6 +40,6 @@ class AlgorithmsController < ApplicationController
   end
 
   def algorithms_params
-    params.require(:algorithm).permit(:name, :best_case, :worst_case, :steps, examples_attributes: [:example, :language])
+    params.require(:algorithm).permit(:name, :best_case, :worst_case, :steps, :example, example_attributes: [:example, :language])
   end
 end

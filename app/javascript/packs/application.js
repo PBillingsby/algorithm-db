@@ -30,3 +30,6 @@ window.findArticles = algorithmName => {
     }
   });
 };
+
+require("trix")
+require("@rails/actiontext")

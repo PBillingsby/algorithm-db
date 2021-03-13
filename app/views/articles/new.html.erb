@@ -1,5 +1,5 @@
 <%= form_for [@algorithm, @article], html: { class: 'text-center'} do |f| %>
-  <div class="w-50 mx-auto">
+  <div class="mx-auto">
     <div class="form-section">
       <%= f.fields_for @article do |a| %>
         <div class="form-section">
@@ -8,7 +8,7 @@
         </div>
         <div class="form-section">
           <%= a.label :article_content, class: 'form-label' %>
-          <%= a.text_area :article_content, class: 'rounded-md' %>
+          <%= a.rich_text_area :content, size: "50x20"  %>
         </div>
       <% end %>
       <div class="text-center">
