@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resource :articles, only: [:new, :create]
   end
   resources :examples, only: [:destroy]
-  resources :articles, only: [:create, :show, :index]
+  resources :articles, only: [:create, :show, :index, :destroy]
   root 'users#index'
   
   get 'users/scoreboard', to: 'users#scoreboard'

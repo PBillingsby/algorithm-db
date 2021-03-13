@@ -27,9 +27,7 @@ class AlgorithmsController < ApplicationController
   end
 
   def update
-    algorithm = Algorithm.find(params[:id])
-    byebug
-    algorithm.examples.create(params[:example])
+    algorithm = Article.create(articles_params)
     redirect_to algorithm_path(algorithm), :flash => { :message => "Example added", :class => 'alert-success' }
   end
 

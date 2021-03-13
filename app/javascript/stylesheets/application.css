@@ -10,7 +10,7 @@
     @apply flex flex-col mx-auto mb-4;
   }
   .form-label {
-    @apply mb-2 text-3xl font-light text-green-700;
+    @apply mb-2 text-xl font-light text-green-700;
   }
 }
 

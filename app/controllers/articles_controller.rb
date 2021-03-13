@@ -6,9 +6,8 @@ class ArticlesController < ApplicationController
 
   def create
     # Revisit to add algorithm to article params
-    algorithm = Algorithm.find(params[:algorithm_id])
-    article = algorithm.articles.create(articles_params[:article])
-    redirect_to article_path(article)
+    article = Article.create(article_params)
+    redirect_to article_path(article), :flash => { :message => "Example added", :class => 'alert-success' }
   end
 
   def show
@@ -24,7 +23,11 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def articles_params
-    params.require(:article).permit(article: [:title, :article_content])
+  def destroy
+    byebug
+  end
+
+  def article_params
+    params.require(:article).permit(:algorithm_id, :title, :article_content)
   end
 end

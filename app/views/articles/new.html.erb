@@ -1,22 +1,20 @@
-<%= form_for @article, html: { class: 'text-center'} do |f| %>
-  <div class="mx-auto">
+<h3 class="text-4xl text-center pb-10 text-green-900 font-semibold"><%= @algorithm.name %></h3>
+<%= form_for @algorithm.articles.build, html: { class: 'text-center'} do |f| %>
+  <%= f.hidden_field :algorithm_id, value: @algorithm.id %>
+  <div class="mx-auto max-w-lg">
     <div class="form-section">
-      <%= f.fields_for @article do |a| %>
-        <div class="form-section">
-          <%= a.label :title, class: 'form-label' %>
-          <%= a.text_field :title, class: 'rounded-md shadow-md' %>
-        </div>
-        <div class="form-section">
-          <span class="inline-block">
-            <%= a.label :article_content, 'Article Content', class: 'form-label' %>
-            <i class="fas fa-question-circle hover:text-gray-300" data-toggle="tooltip" data-html="true" title="Use markdown formatting to style your article"></i>
-          </span>
-          <%= a.rich_text_area :content, class: 'h-80 rounded-xl shadow-md'  %>
-        </div>
-      <% end %>
-      <div class="text-center">
-        <%= f.submit "Add #{@algorithm.name} Article", class: 'submit-btn' %>
-      </div>
+      <%= f.label :title, class: 'form-label' %>
+      <%= f.text_field :title, class: 'rounded-md shadow-md' %>
+    </div>
+    <div class="form-section">
+      <span class="inline-block">
+        <%= f.label :article_content, 'Article Content', class: 'form-label' %>
+        <i class="fas fa-question-circle hover:text-gray-300" data-toggle="tooltip" data-html="true" title="Use markdown formatting to style your article"></i>
+      </span>
+      <%= f.rich_text_area :article_content, class: 'h-80 rounded-xl shadow-md'  %>
+    </div>
+    <div class="text-center">
+      <%= f.submit "Add #{@algorithm.name} Article", class: 'submit-btn' %>
     </div>
   </div>
 <% end %>

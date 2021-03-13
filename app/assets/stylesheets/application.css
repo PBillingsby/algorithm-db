@@ -12,7 +12,10 @@
  *
  *= require_tree .
  *= require_self
+ //= require actiontext
  */
+@import "trix/dist/trix";
+@import "./actiontext.scss";
 .code-min {
   min-width: 20vw;
   max-width: 60vw;

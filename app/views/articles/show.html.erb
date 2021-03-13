@@ -2,4 +2,5 @@
   <%= @article.title %>
   <%= @article.article_content %>
 </div>
+<%= link_to 'delete', method: :delete %>
 <%= link_to 'back', algorithm_path(@article.algorithm) %>
