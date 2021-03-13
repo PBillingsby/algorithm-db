@@ -10,7 +10,7 @@
     @apply flex flex-col mx-auto mb-4;
   }
   .form-label {
-    @apply mb-2 text-lg text-green-700;
+    @apply mb-2 text-3xl font-light text-green-700;
   }
 }
 
@@ -19,4 +19,8 @@ pre {
 }
 .header-text {
   text-shadow: -1px 0 black, 0 1.5px black, 1.5px 0 black, 0 -1px black;
+}
+
+i {
+  filter: opacity(0.5) drop-shadow(0 0 0 #357958);
 }

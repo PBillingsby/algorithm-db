@@ -1,14 +1,17 @@
-<%= form_for [@algorithm, @article], html: { class: 'text-center'} do |f| %>
+<%= form_for @article, html: { class: 'text-center'} do |f| %>
   <div class="mx-auto">
     <div class="form-section">
       <%= f.fields_for @article do |a| %>
         <div class="form-section">
           <%= a.label :title, class: 'form-label' %>
-          <%= a.text_field :title, class: 'rounded-md' %>
+          <%= a.text_field :title, class: 'rounded-md shadow-md' %>
         </div>
         <div class="form-section">
-          <%= a.label :article_content, class: 'form-label' %>
-          <%= a.rich_text_area :content, size: "50x20"  %>
+          <span class="inline-block">
+            <%= a.label :article_content, 'Article Content', class: 'form-label' %>
+            <i class="fas fa-question-circle hover:text-gray-300" data-toggle="tooltip" data-html="true" title="Use markdown formatting to style your article"></i>
+          </span>
+          <%= a.rich_text_area :content, class: 'h-80 rounded-xl shadow-md'  %>
         </div>
       <% end %>
       <div class="text-center">

@@ -7,7 +7,7 @@
                   required: true,
                   autofocus: true,
                   label: false,
-                  input_html: { class: 'rounded-md' } %>
+                  input_html: { class: 'rounded-md shadow-md' } %>
     </div>
     <div class="form-section">
       <%= f.label :password, class: 'mb-2 text-lg text-gray-400' %>
@@ -15,7 +15,7 @@
                   required: true,
                   autofocus: true,
                   label: false,
-                  input_html: { autocomplete: "current-password", class: 'rounded-md' } %>
+                  input_html: { autocomplete: "current-password", class: 'rounded-md shadow-md' } %>
       <%= f.input :remember_me, input_html: { class: 'mr-3' }, as: :boolean if devise_mapping.rememberable? %>
     </div>
 
