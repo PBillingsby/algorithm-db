@@ -1,7 +1,14 @@
 <hr className="pt-4"></hr>
 <span className="inline-block">
-  <p className="inline-block pr-3 py-3 text-green-700 mb-2">
-    Language:
-  </p>
-  <%= select_tag "examples", options_for_select(@languages, "--"), :onchange => remote_function(:url => {:controller => 'algorithms', :action => 'show'})%>
+  <label>Select Language</label>
+  <%= select_tag "examples", options_for_select(@languages, "--"), prompt: '---', onchange: "changeLanguage(this, #{@algorithm.id})" %>
+  <% if @examples %>
+    <% byebug %>
+    <%= @language %>
+    <% @examples.each do |example| %>
+      <code>
+        <pre><%= example %></pre>
+      </code>
+    <% end %>
+  <% end %>
 </span>

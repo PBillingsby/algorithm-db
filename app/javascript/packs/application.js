@@ -20,16 +20,5 @@ import "trix/dist/trix.css";
 var componentRequireContext = require.context("components", true);
 var ReactRailsUJS = require("react_ujs");
 ReactRailsUJS.useContext(componentRequireContext);
-
-window.findArticles = algorithmName => {
-  return fetch(`http://localhost:3000/articles?algorithm=${algorithmName}`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json"
-    }
-  });
-};
-
 require("trix");
 require("@rails/actiontext");

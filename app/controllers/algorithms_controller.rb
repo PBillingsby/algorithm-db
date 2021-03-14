@@ -7,7 +7,6 @@ class AlgorithmsController < ApplicationController
 
   def create
     algorithm_found = Algorithm.find_by(name: algorithms_params[:name])
-    byebug
     if algorithm_found
       algorithm_found.examples.create(algorithms_params[:examples_attributes]["0"])
       algorithm = algorithm_found
@@ -25,7 +24,10 @@ class AlgorithmsController < ApplicationController
   def show
     @algorithm = Algorithm.find(params[:id])
     @languages = @algorithm.examples.collect {|x| x.language}.uniq
-    byebug
+    if params["language"]
+      @examples = @algorithm.examples.where(language: params[:language])
+      @language = params[:language]
+    end
   end
 
   def update
