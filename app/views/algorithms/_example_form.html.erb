@@ -1,8 +1,7 @@
 <div class="max-w-xs mx-auto">
   <span class="inline-block">
     <h3 class="pt-2">Add <%= @algorithm.name %> example</h3>
-    <i class="fas fa-question-circle" data-toggle="tooltip" data-html="true" title="Use markdown formatting to style your article"></i>
-  </span>
+    <i class="fas fa-question-circle" data-toggle="tooltip" data-html="true" title="Add an article for <%= @algorithm.name %>"></i></span>
   <div class="form-section">
     <%= f.fields_for :example do |a| %>
       <div class="text-center">

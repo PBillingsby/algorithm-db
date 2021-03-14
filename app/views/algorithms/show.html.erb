@@ -4,13 +4,16 @@
     <div class="mx-auto min-vw-75 pt-4 mt-3">
       <%= react_component("Algorithm", { algorithm: @algorithm, examples: @algorithm.examples, key: @algorithm.id }, {prerender: true}) %>
     </div>
-    <button class="ml-4 btn-sm btn btn-outline-secondary"><%= button_to "Delete #{@algorithm.name}", algorithm_path(@algorithm), method: :delete, class: 'submit-btn', data: { confirm: "Are you certain you want to delete #{@algorithm.name}?" }%></button>
-    <button class="ml-4 btn-sm btn btn-outline-secondary"><%= button_to "Add #{@algorithm.name} article", new_algorithm_articles_path(@algorithm), method: :get, class: 'submit-btn' %></button>
+    <%= button_to "Delete #{@algorithm.name}", algorithm_path(@algorithm), method: :delete, class: 'submit-btn mt-3', data: { confirm: "Are you certain you want to delete #{@algorithm.name}?" }%>
   </div>
   <div class="text-center mx-auto pt-4">
     <%= form_for @algorithm, html: { class: 'text-center' } do |f| %>
       <%= render 'algorithms/example_form', f:f %>
       <%= submit_tag "Add new example", class: 'mt-2 submit-btn' %>
     <% end %>
+  </div>
+  <div class="col-span-3 mx-auto">
+    <h3 class="text-3xl text-green-700 font-semibold"><%= @algorithm.name %> Articles</h3>
+    <%= button_to "Add #{@algorithm.name} article", new_algorithm_articles_path(@algorithm), method: :get, class: 'submit-btn mt-3' %>
   </div>
 </div>

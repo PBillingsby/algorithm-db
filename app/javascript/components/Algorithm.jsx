@@ -26,7 +26,6 @@ class Algorithm extends React.Component {
     );
   };
   render() {
-    debugger;
     let examples = [...this.props.examples];
     let unique_languages = [...new Set(examples.map(eg => eg.language))];
     return (
@@ -71,7 +70,7 @@ class Algorithm extends React.Component {
                       </pre>
                     </div>
                     <button
-                      className="submit-btn text-red-400 ml-4 mt-4"
+                      className="submit-btn text-red-400 mt-4"
                       onClick={() => this.deleteExample(eg.language, eg)}
                     >{`Delete Example ${index + 1}`}</button>
                   </li>

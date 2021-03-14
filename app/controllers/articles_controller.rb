@@ -24,7 +24,9 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    byebug
+    article = Article.find(params[:id])
+    article.delete
+    redirect_to algorithm_path(article.algorithm.id), :flash => { :message => "Article removed", :class => 'alert-danger' }
   end
 
   def article_params
