@@ -24,6 +24,8 @@ class AlgorithmsController < ApplicationController
 
   def show
     @algorithm = Algorithm.find(params[:id])
+    @languages = @algorithm.examples.collect {|x| x.language}.uniq
+    byebug
   end
 
   def update

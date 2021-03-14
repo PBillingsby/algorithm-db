@@ -2,7 +2,7 @@
 <div class="grid grid-cols-2 px-3"> 
   <div class="mx-auto container">
     <div class="mx-auto min-vw-75 pt-4 mt-3">
-      <%= react_component("Algorithm", { algorithm: @algorithm, examples: @algorithm.examples, key: @algorithm.id }, {prerender: true}) %>
+      <%= render 'algorithms/algorithm' %>
     </div>
     <%= button_to "Delete #{@algorithm.name}", algorithm_path(@algorithm), method: :delete, class: 'submit-btn mt-3', data: { confirm: "Are you certain you want to delete #{@algorithm.name}?" }%>
   </div>
@@ -12,8 +12,11 @@
       <%= submit_tag "Add new example", class: 'mt-2 submit-btn' %>
     <% end %>
   </div>
-  <div class="col-span-3 mx-auto">
+  <div class="col-span-2 mx-auto">
     <h3 class="text-3xl text-green-700 font-semibold"><%= @algorithm.name %> Articles</h3>
-    <%= button_to "Add #{@algorithm.name} article", new_algorithm_articles_path(@algorithm), method: :get, class: 'submit-btn mt-3' %>
+    <ol class="grid grid-cols-3"><% @algorithm.articles.each do |article| %>
+      <li><%= link_to article.title, article_path(article) %></li><br>
+    <% end %></ol>
+    <%= button_to "Add #{@algorithm.name} article", new_algorithm_articles_path(@algorithm), method: :get, class: 'submit-btn mt-3 text-center' %>
   </div>
 </div>

@@ -11,13 +11,15 @@
     </li>
   </ul>
   <span class="inline-block">
-    <img src="https://www.flaticon.com/svg/vstatic/svg/2103/2103620.svg?token=exp=1615046897~hmac=74923fb44ece7693b7e116dcdf18f012" class="w-7 mx-auto">
     <p class="text-green-700 font-semibold">AlgorithmDB</p>
+    <img src="https://www.flaticon.com/svg/vstatic/svg/2103/2103620.svg?token=exp=1615046897~hmac=74923fb44ece7693b7e116dcdf18f012" class="w-7 mx-auto">
   </span>
   <div>
-    <span class="text-green-700 px-3 pt-2.5 pr-2.5 inline-block">
+    <span class="text-green-700 px-3 pr-2.5 inline-block">
       <img src="https://www.flaticon.com/svg/vstatic/svg/1621/1621561.svg?token=exp=1615046242~hmac=23b9bf7e2c8bc8d778276d1505190994" class="w-3 pt-2 float-left"> <%= link_to current_user.username, edit_user_registration_path %>
     </span>
-    <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'text-green-700' %>
+    <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'text-green-700' %><br>
+    <p class="text-xs">Algorithms: <%= current_user.algorithms.count %></p>
+    <p class="text-xs">Articles: <%= current_user.articles.count %></p>
   </div>
 </div>

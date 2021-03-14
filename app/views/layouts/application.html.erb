@@ -18,13 +18,18 @@
       <% if current_user %>
        <%= render 'layouts/navbar' %>
       <% end %>
+      <% flash.each do |type, msg| %>
+        <div>
+          <%= msg %>
+        </div>
+      <% end %>
       <% if notice %>
         <p class="alert alert-success"><%= notice %></p>
       <% end %>
       <% if alert %>
         <p class="alert alert-danger text-center text-red-400"><%= alert %></p>
       <% end %>
-      <div class="p-3 mt-16 flex flex-col h-screen w-11/12 mx-auto font-mono border border-opacity-30 border-black rounded-xl">
+      <div class="p-3 mt-16 flex flex-col h-screen w-11/12 mx-auto font-mono border border-opacity-30 border-black rounded-xl overflow-scroll">
         <%= yield %>
       </div>
       <%= render 'layouts/footer'%>
