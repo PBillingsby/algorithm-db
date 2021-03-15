@@ -1,14 +1,11 @@
 <hr className="pt-4"></hr>
 <span className="inline-block">
   <label>Select Language</label>
-  <%= select_tag "examples", options_for_select(@languages, "--"), prompt: '---', onchange: "changeLanguage(this, #{@algorithm.id})" %>
-  <% if @examples %>
-    <% byebug %>
-    <%= @language %>
-    <% @examples.each do |example| %>
-      <code>
-        <pre><%= example %></pre>
-      </code>
-    <% end %>
+  <%= select_tag "examples", options_for_select(@languages), prompt: 'All', onchange: "changeLanguage(this, #{@algorithm.id})" %>
+  <%= @language %>
+  <% @examples.each do |eg| %>
+    <code>
+      <pre><%= eg.example %></pre>
+    </code>
   <% end %>
 </span>

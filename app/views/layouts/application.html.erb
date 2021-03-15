@@ -16,13 +16,20 @@
   <body>
     <div class="mt-0">
       <% if current_user %>
-       <%= render 'layouts/navbar' %>
+        <%= render 'layouts/navbar' %>
+      <% else %>
+      <div class="mx-auto text-center bg-gray-100 border-b border-opacity-30 border-black">
+        <span class="inline-block mx-auto text-center ">
+          <p class="text-green-700 font-semibold">AlgorithmDB</p>
+          <img src="https://www.flaticon.com/svg/vstatic/svg/2103/2103620.svg?token=exp=1615046897~hmac=74923fb44ece7693b7e116dcdf18f012" class="w-7 mx-auto">
+        </span>
+      </div>
       <% end %>
-      <% flash.each do |type, msg| %>
+      <!-- <% flash.each do |type, msg| %>
         <div>
           <%= msg %>
         </div>
-      <% end %>
+      <% end %> -->
       <% if notice %>
         <p class="alert alert-success"><%= notice %></p>
       <% end %>

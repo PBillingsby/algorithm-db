@@ -24,10 +24,8 @@ class AlgorithmsController < ApplicationController
   def show
     @algorithm = Algorithm.find(params[:id])
     @languages = @algorithm.examples.collect {|x| x.language}.uniq
-    if params["language"]
-      @examples = @algorithm.examples.where(language: params[:language])
-      @language = params[:language]
-    end
+    @examples = params["language"].present? ? @algorithm.examples.where(language: params[:language]) : @algorithm.examples.all
+    @language = params[:language]
   end
 
   def update

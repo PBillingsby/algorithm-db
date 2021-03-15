@@ -1,28 +1,38 @@
 
-<div class="text-center">
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-section">
-      <%= f.label :email, class: 'mb-2 text-lg text-gray-400' %>
-      <%= f.input :email,
-                  required: true,
-                  autofocus: true,
-                  label: false,
-                  input_html: { class: 'rounded-md shadow-md' } %>
-    </div>
-    <div class="form-section">
-      <%= f.label :password, class: 'mb-2 text-lg text-gray-400' %>
-      <%= f.input :password,
-                  required: true,
-                  autofocus: true,
-                  label: false,
-                  input_html: { autocomplete: "current-password", class: 'rounded-md shadow-md' } %>
-      <%= f.input :remember_me, input_html: { class: 'mr-3' }, as: :boolean if devise_mapping.rememberable? %>
-    </div>
+<div class="grid grid-cols-2 gap-3">
+  <div class="text-center px-10">
+    <h4 class="text-3xl">AlgorithmDB</h4>
+    <h6 class="text-xl text-green-700">About</h6>
+    <p class="text-xs text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean felis mauris, ultricies in elit in, egestas porta libero. Donec congue vulputate lorem sed aliquam. Morbi porta efficitur pretium. Sed non efficitur magna, sit amet egestas nisl. Maecenas eleifend sed nunc eget molestie. Fusce vel justo tincidunt neque varius tincidunt. Quisque quis tempor neque. Vestibulum ante ipsum primis in </p>
+    <h6 class="text-xl text-green-700">Mission</h6>
+    <p class="text-xs text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean felis mauris, ultricies in elit in, egestas porta libero. Donec congue vulputate lorem sed aliquam. Morbi porta efficitur pretium. Sed non efficitur magna, sit amet egestas nisl. Maecenas eleifend sed nunc eget molestie. Fusce vel justo tincidunt neque varius tincidunt. Quisque quis tempor neque. Vestibulum ante ipsum primis in </p>
+  </div>
+  <div class="text-center col-start-3 col-end-5">
+    <h4 class="text-3xl">Log In</h4>
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-section">
+        <%= f.label :email, class: 'mb-2 text-lg text-gray-400' %>
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    label: false,
+                    input_html: { class: 'rounded-md shadow-md' } %>
+      </div>
+      <div class="form-section">
+        <%= f.label :password, class: 'mb-2 text-lg text-gray-400' %>
+        <%= f.input :password,
+                    required: true,
+                    autofocus: true,
+                    label: false,
+                    input_html: { autocomplete: "current-password", class: 'rounded-md shadow-md' } %>
+        <%= f.input :remember_me, input_html: { class: 'mr-3' }, as: :boolean if devise_mapping.rememberable? %>
+      </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Log in", class: 'submit-btn' %>
-    </div>
-  <% end %>
+      <div class="form-actions">
+        <%= f.button :submit, "Log in", class: 'submit-btn' %>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <%= render "users/shared/links" %>
