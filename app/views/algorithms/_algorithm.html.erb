@@ -1,11 +1,9 @@
 <hr className="pt-4"></hr>
 <span className="inline-block">
   <label>Select Language</label>
-  <%= select_tag "examples", options_for_select(@languages), prompt: 'All', onchange: "changeLanguage(this, #{@algorithm.id})" %>
+  <%= select_tag "examples", options_for_select(@languages), prompt: 'All', onchange: "changeLanguage(this, #{@algorithm.id})", onload: "changeLanguage(this, #{@algorithm.id})" %>
   <%= @language %>
-  <% @examples.each do |eg| %>
-    <code>
-      <pre><%= eg.example %></pre>
-    </code>
-  <% end %>
+  <div id="examples">
+    <!-- JS renders examples here -->
+  </div>
 </span>

@@ -6,6 +6,22 @@ channels.keys().forEach(channels);
 
 window.changeLanguage = function(event, algorithm_id) {
   return fetch(
-    `http://localhost:3000/algorithms/${algorithm_id}?language=${event.value}`
-  );
+    `http://localhost:3000/algorithms/${algorithm_id}?language=${event.value}`,
+    {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      }
+    }
+  )
+    .then(resp => resp.json())
+    .then(obj => {
+      debugger;
+      document
+        .getElementById("examples")
+        .append(
+          "<%= j render(:partial => 'algorithms/example'), :locals => { :examples => obj } %>"
+        );
+    });
+  // .append("<%= j render(:partial => 'comments/foobar'), :locals => { :examples => @comment } %>")
 };

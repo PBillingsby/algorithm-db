@@ -25,7 +25,10 @@ class AlgorithmsController < ApplicationController
     @algorithm = Algorithm.find(params[:id])
     @languages = @algorithm.examples.collect {|x| x.language}.uniq
     @examples = params["language"].present? ? @algorithm.examples.where(language: params[:language]) : @algorithm.examples.all
-    @language = params[:language]
+    respond_to do |format|
+      format.html 
+      format.json { render json: @examples }
+     end
   end
 
   def update
