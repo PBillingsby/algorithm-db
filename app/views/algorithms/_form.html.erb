@@ -4,11 +4,16 @@
     <%= f.text_field :name, class: 'rounded-md shadow-md' %>
   </div>
   <div class="form-section">
-    <%= f.label :steps, class: 'form-label' %>
-    <%= f.text_area :steps, class: 'rounded-md shadow-md' %>
+    <%= f.label :worst_case, class: 'form-label' %>
+    <%= f.select :worst_case, options_for_select(Algorithm::RUNTIME, "-"), class: 'form-select shadow-md' %>
+  </div>
+  <div class="form-section">
+    <%= f.label :best_case, class: 'form-label' %>
+    <%= f.select :best_case, options_for_select(Algorithm::RUNTIME, "-"), class: 'form-select shadow-md' %>
   </div>
   <div class="mb-2">
     <%= f.simple_fields_for :examples do |a| %>
+      <%= a.hidden_field :user_id, :value => current_user.id %>
       <div class="form-section mx-auto">
         <%= a.label :example, class: 'form-label' %>
         <%= a.text_area :example, class: 'rounded-md shadow-md' %>
@@ -18,14 +23,6 @@
         <%= a.select :language, options_for_select(Algorithm::LANGUAGES, "--"), class: 'rounded-md shadow-md' %>
       </div>
     <% end %>
-  </div>
-  <div class="form-section">
-    <%= f.label :worst_case, class: 'mb-2 pb-2 text-lg text-gray-400' %>
-    <%= f.select :worst_case, options_for_select(Algorithm::RUNTIME, "-"), class: 'form-select shadow-md' %>
-  </div>
-  <div class="form-section">
-    <%= f.label :best_case, class: 'form-label' %>
-    <%= f.select :best_case, options_for_select(Algorithm::RUNTIME, "-"), class: 'form-select shadow-md' %>
   </div>
   <div class="text-center">
     <%= f.submit 'Add algorithm', :class => 'submit-btn p-2 rounded-sm border border-black border-opacity-0.4 hover:bg-gray-300 shadow-sm' %>

@@ -1,5 +1,4 @@
 class Algorithm < ApplicationRecord
-  belongs_to :user
   has_many :examples
   has_many :articles
   accepts_nested_attributes_for :examples

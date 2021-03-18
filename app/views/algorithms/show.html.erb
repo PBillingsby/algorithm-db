@@ -6,9 +6,10 @@
     </div>
   </div>
   <div class="text-center mx-auto pt-4">
-    <%= form_for @algorithm, html: { class: 'text-center' } do |f| %>
+    <%= form_for @example, method: :post, html: { class: 'text-center' } do |f| %>
+      <%= f.hidden_field :algorithm_id, :value => @algorithm.id %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
       <%= render 'algorithms/example_form', f:f %>
-      <%= submit_tag "Add new example", class: 'mt-2 submit-btn' %>
     <% end %>
   </div>
   <div class="col-span-2 mx-auto">

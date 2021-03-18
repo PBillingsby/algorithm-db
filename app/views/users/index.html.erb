@@ -1,19 +1,13 @@
 <div class="font-mono grid grid-cols-2">
   <div>
     <h1 class="text-2xl underline pb-2">Hello, <%= current_user.username %></h1><br>
-    <%= t('users.index.algorithm_count',
-      count: current_user.algorithms.count,
-      break: raw('<br>'),
-      link_open: raw('<a href="/algorithms/new">'),
-      link_close: raw('</a>')
-    ) %>
   </div>
   <div class="mx-auto">
-    <% if !current_user.algorithms.empty? %>
+    <% if !current_user.examples.empty? %>
     <h1 class="text-2xl underline pb-2">My Algorithms</h1>
       <ol class="list-decimal pl-10">
-        <% current_user.algorithms.each do |algorithm| %>
-          <li><%= link_to algorithm.name, algorithm_path(algorithm), class: 'text-green-700' %></li>
+        <% current_user.examples.each do |example| %>
+          <li><%= link_to example.algorithm.name, example_path(example), class: 'text-green-700' %></li>
         <% end %>
       </ol>
     <% else %>

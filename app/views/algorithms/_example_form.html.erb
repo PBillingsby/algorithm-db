@@ -3,15 +3,14 @@
     <h3 class="pt-2">Add <%= @algorithm.name %> example</h3>
     <i class="fas fa-question-circle" data-toggle="tooltip" data-html="true" title="Add an article for <%= @algorithm.name %>"></i></span>
   <div class="form-section">
-    <%= f.fields_for :example do |a| %>
       <div class="text-center">
-        <%= a.label :example, class: 'form-label' %><br>
-        <%= a.text_area :example, class: 'form-control shadow-md' %>
+        <%= f.label :example, class: 'form-label' %><br>
+        <%= f.text_area :example, class: 'form-control shadow-md' %>
       </div>
       <div class="text-center">  
-        <%= a.label :language, class: 'form-label' %><br>
-        <%= a.select :language, options_for_select(Algorithm::LANGUAGES, "--"), class: 'form-control shadow-md' %>
+        <%= f.label :language, class: 'form-label' %><br>
+        <%= f.select :language, options_for_select(Algorithm::LANGUAGES, "--"), class: 'form-control shadow-md' %>
       </div>
-    <% end %>
+    <%= submit_tag "Add new example", class: 'mt-2 submit-btn' %>
   </div>
 </div>

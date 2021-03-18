@@ -1,17 +1,14 @@
 class AlgorithmsController < ApplicationController
   include ApplicationHelper
   def new
-    @algorithm = current_user.algorithms.build
+    @algorithm = Algorithm.new
     @algorithm.examples.build
   end
 
   def create
-    algorithm_found = Algorithm.find_by(name: algorithms_params[:name])
-    if algorithm_found
-      algorithm_found.examples.create(algorithms_params[:examples_attributes]["0"])
-      algorithm = algorithm_found
-    else
-      algorithm = current_user.algorithms.create(algorithms_params)
+    algorithm = Algorithm.find_or_create_by(name: algorithm_params[:name], best_case: algorithm_params[:best_case], worst_case: algorithm_params[:worst_case])
+    if algorithm
+      algorithm.examples.create(algorithm_params[:examples_attributes]["0"])
     end
     flash[:message] = "#{algorithm.name} added"
     redirect_to algorithm_path(algorithm)
@@ -23,15 +20,17 @@ class AlgorithmsController < ApplicationController
 
   def show
     @algorithm = Algorithm.find(params[:id])
+    @example = @algorithm.examples.build
     @languages = @algorithm.examples.pluck(:language).uniq
     @examples = params["language"].present? ? @algorithm.examples.where(language: params[:language]) : @algorithm.examples.all
     respond_to do |format|
       format.html 
       format.json { render json: @examples }
-     end
+    end
   end
 
   def update
+    byebug
     algorithm = Article.create(params["algorithm"]["example"])
     redirect_to algorithm_path(algorithm), :flash => { :message => "Example added", :class => 'alert-success' }
   end
@@ -42,7 +41,7 @@ class AlgorithmsController < ApplicationController
     redirect_to algorithms_path, :flash => { :message => "#{algorithm.name} removed", :class => 'alert-danger' }
   end
 
-  def algorithms_params
-    params.require(:algorithm).permit(:name, :best_case, :worst_case, :steps, :example, example_attributes: [:example, :language])
+  def algorithm_params
+    params.require(:algorithm).permit(:name, :best_case, :worst_case, :steps, examples_attributes: [:user_id, :example, :language])
   end
 end

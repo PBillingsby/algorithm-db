@@ -19,7 +19,7 @@
       <img src="https://www.flaticon.com/svg/vstatic/svg/1621/1621561.svg?token=exp=1615046242~hmac=23b9bf7e2c8bc8d778276d1505190994" class="w-3 pt-2 float-left"> <%= link_to current_user.username, edit_user_registration_path %>
     </span>
     <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'text-green-700' %><br>
-    <p class="text-xs">Algorithms: <%= current_user.algorithms.count %></p>
+    <p class="text-xs">Algorithm Examples: <%= current_user.examples.count %></p>
     <p class="text-xs">Articles: <%= current_user.articles.count %></p>
   </div>
 </div>

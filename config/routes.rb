@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resource :examples, only: [:create]
     resource :articles, only: [:new, :create]
   end
-  resources :examples, only: [:destroy]
+  resources :examples, only: [:create, :destroy]
   resources :articles, only: [:create, :show, :index, :destroy]
   root 'users#index'
   

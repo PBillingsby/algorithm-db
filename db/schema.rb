@@ -50,20 +50,21 @@ ActiveRecord::Schema.define(version: 2021_03_13_181518) do
     t.string "name"
     t.string "worst_case"
     t.string "best_case"
-    t.text "steps"
-    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "articles", force: :cascade do |t|
     t.bigint "algorithm_id"
+    t.bigint "user_id"
     t.string "title"
     t.text "article_content"
     t.index ["algorithm_id"], name: "index_articles_on_algorithm_id"
+    t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
   create_table "examples", force: :cascade do |t|
+    t.integer "user_id"
     t.integer "algorithm_id"
     t.string "language"
     t.text "example"

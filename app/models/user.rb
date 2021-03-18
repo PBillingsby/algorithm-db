@@ -2,7 +2,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :algorithms, class_name: "::Algorithm"
-  has_many :articles, through: :algorithms
+  has_many :articles
+  has_many :examples
   attr_writer :login
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
