@@ -22,10 +22,9 @@ window.changeLanguage = function(event, algorithm_id) {
 
 const sendObjectsToContainer = objects => {
   objects.forEach(obj => {
-    document.getElementById("exampleSelect").innerHTML = `<div>
-        <code>
-          <pre>${obj.example}</pre>
-        </code>
-      </div>`;
+    document.getElementById("exampleSelect").innerHTML = `
+        <code class="max-w-sm overflow-scroll inline-block">
+          <pre class="border border-black border-opacity-30 p-3">${obj.example}</pre>
+        </code>`;
   });
 };

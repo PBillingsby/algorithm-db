@@ -23,7 +23,7 @@ class AlgorithmsController < ApplicationController
 
   def show
     @algorithm = Algorithm.find(params[:id])
-    @languages = @algorithm.examples.collect {|x| x.language}.uniq
+    @languages = @algorithm.examples.pluck(:language).uniq
     @examples = params["language"].present? ? @algorithm.examples.where(language: params[:language]) : @algorithm.examples.all
     respond_to do |format|
       format.html 
