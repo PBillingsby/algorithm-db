@@ -32,7 +32,7 @@ class AlgorithmsController < ApplicationController
   end
 
   def update
-    algorithm = Article.create(articles_params)
+    algorithm = Article.create(params["algorithm"]["example"])
     redirect_to algorithm_path(algorithm), :flash => { :message => "Example added", :class => 'alert-success' }
   end
 

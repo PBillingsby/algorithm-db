@@ -16,12 +16,16 @@ window.changeLanguage = function(event, algorithm_id) {
   )
     .then(resp => resp.json())
     .then(obj => {
-      debugger;
-      document
-        .getElementById("examples")
-        .append(
-          "<%= j render(:partial => 'algorithms/example'), :locals => { :examples => obj } %>"
-        );
+      sendObjectsToContainer(obj);
     });
-  // .append("<%= j render(:partial => 'comments/foobar'), :locals => { :examples => @comment } %>")
+};
+
+const sendObjectsToContainer = objects => {
+  objects.forEach(obj => {
+    document.getElementById("exampleSelect").innerHTML = `<div>
+        <code>
+          <pre>${obj.example}</pre>
+        </code>
+      </div>`;
+  });
 };
