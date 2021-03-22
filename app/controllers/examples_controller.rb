@@ -3,11 +3,11 @@ class ExamplesController < ApplicationController
 
   def create
     example = Example.create(example_params)
-    
-    respond_to do |format|
-      format.js { render :js => "changeLanguage(example.language, example.algorithm.id);" }
-    end
-    # redirect_to algorithm_path(example.algorithm, language: example.language), :flash => { :message => "Example Added", :class => 'alert-success' }
+    # @algorithm = example.algorithm
+    # @languages = @algorithm.examples.pluck(:language).uniq
+    # @example = @algorithm.examples.build
+    redirect_to algorithm_path(@algorithm), locals: { language: example.language }
+    # algorithm_path(example.algorithm, language: example.language), :flash => { :message => "Example Added", :class => 'alert-success' }
   end
 
   def destroy
